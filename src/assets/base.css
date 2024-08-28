@@ -1,0 +1,113 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, ::after, ::before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+:root {
+  --color-bg: #000;
+  --color-white: #fff;
+  --color-prime: #f41f04;
+  --color-second: #f29069;
+  --color-blue: #535ff6;
+  --color-blue-r: 83, 95, 246;
+  --color-gray: #aaa;    
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../fonts/MontserratRegular.woff) format('woff'),
+      url(../fonts/MontserratRegular.woff2) format('woff2');
+  font-weight: 400;    
+font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../fonts/MontserratMedium.woff) format('woff'),
+      url(../fonts/MontserratMedium.woff2) format('woff2');
+  font-weight: 500;    
+font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../fonts/MontserratBold.woff) format('woff'),
+      url(../fonts/MontserratBold.woff2) format('woff2');
+  font-weight: 700;    
+font-style: normal;
+  font-display: swap;
+}
+
+/* Общие стили для всех браузеров */
+/* Ширина полосы прокрутки */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Цвет фона полосы прокрутки */
+::-webkit-scrollbar-track {
+  background-color: var(--color-bg);
+}
+
+/* Цвет самой полосы прокрутки */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue);
+  border-radius: 4px;
+}
+
+/* закругление в Firefox*/
+::-moz-range-thumb {
+  border-radius: 4px;
+}
+/* Edge и Internet Explorer */
+*::-ms-thumb {
+  border-radius: 4px; /* Закругленные углы для тумблера */
+}
+
+/* Изменение цвета полосы прокрутки при наведении курсора */
+/* ::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+} */
+
+/* Firefox */
+/* Ширина полосы прокрутки */
+html {
+  scrollbar-width: 8px;
+}
+
+/* Цвет полосы прокрутки */
+body {
+  scrollbar-color: var(--color-bg);
+}
+
