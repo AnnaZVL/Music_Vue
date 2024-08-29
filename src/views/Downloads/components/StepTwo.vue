@@ -1,43 +1,18 @@
 <script setup>
-import StepSection from './StepSection.vue';
+import StepSection from './StepSection.vue'
+import FormStepTwoTrack from '@/components/Layout/DownloadsForm/FormStepTwoTrack.vue'
 
-import { useStateStore } from '@/stores/stateStore';
+import { useStateStore } from '@/stores/stateStore'
 
 const store = useStateStore()
-
 </script>
 
 <template>
   <StepSection title="Информация о релизе">
+    <FormStepTwoTrack v-if="store.typeDownload === 'track'"></FormStepTwoTrack>
+    <div v-else>ALBUM 2</div>
     <!-- <form class="form-two form-step" action="POST" id="formTwo">
-      <h6 class="form-step__title">Выберите жанр</h6>
-      <select class="form-step__select" name="genre" id="genre">
-        <option value="pop">Поп-музыка</option>
-        <option value="rok">Рок-музыка</option>
-        <option value="jazz">Джаз</option>
-        <option value="hop">Хип-Хоп</option>
-        <option value="folk">Фольк</option>
-      </select>
-      <div class="form-step__box">
-        <h6 class="form-step__title">Обложка</h6>
-        <div class="tultip">
-          <button class="tultip__btn" type="button">
-            <svg class="tultip__icon">
-              <use xlink:href="#tultip"></use>
-            </svg>
-          </button>
-          <p class="tultip__content">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus magni modi,
-            adipisci cumque, minus nulla tenetur pariatur
-          </p>
-        </div>
-      </div>
-      <div class="form-step__inner">
-        <input class="form-step__file" type="file" accept="image/*" id="img" />
-        <label class="form-step__label" for="img">
-          <span>+</span>
-        </label>
-      </div>
+      
       <div class="form-step__wrapper">
         <label class="form-step__label" for="name">
           <p>Исполнитель</p>
@@ -102,17 +77,12 @@ const store = useStateStore()
           </div>
         </label>
       </div>
-      <button class="btn header__link link step__btn" data-step="3">
-        <span class="link__line link__line--top"></span>
-        <span class="link__line link__line--right"></span>
-        <span class="link__line link__line--bottom"></span>
-        <span class="link__line link__line--left"></span>
-        Далее
-      </button>
+    
     </form> -->
-    <div v-if="store.typeDownload === 'track'">Track 2</div>  
-    <div v-else>ALBUM 2</div>    
   </StepSection>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+
+</style>

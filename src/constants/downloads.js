@@ -43,3 +43,11 @@ export const questionsList = [
         text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti perspiciatis nulla pariatur voluptatum cum dolores! Cumperferendis ad suscipit veritatis.'
     },
 ]
+
+export const genre = [ 
+    { id: 1, name: 'Поп-музыка', value: 'pop' },
+    { id: 2, name: 'Рок-музыка', value: 'rok' },
+    { id: 1, name: 'Джаз', value: 'djazz' },
+    { id: 1, name: 'Хип-Хоп', value: 'hop' },
+    { id: 1, name: 'Фольк', value: 'folk' },
+]

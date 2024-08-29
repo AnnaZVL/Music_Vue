@@ -18,7 +18,7 @@ export const topMenu = [
     id: 1,
     text: 'События',
     icon: IconCalendar,
-    path: 'events',
+    path: {name: 'Events'},
     disabled: false
   },
   {
@@ -35,7 +35,7 @@ export const secondMenu = [
     id: 20,
     text: 'Мой каталог',
     icon: IconDisribut,
-    path: 'catalog',
+    path: {name: 'Catalog'},
     disabled: false
   },
   {

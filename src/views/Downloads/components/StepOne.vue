@@ -12,13 +12,19 @@ const store = useStateStore()
 <template>
     <StepSection title="Что загружаем ?">
         <div class="download__buttons">
-            <router-link class="btn step__btn download__btn" :to="{name: 'step2', params:{type: 'track'}}" @click="store.changeDownloads('track')">
-                <IconSingle class="download__btn-icon"/>
-                <span class="download__btn--text">Сингл</span>
+            <router-link 
+                class="btn step__btn download__btn" 
+                :to="{name: 'step2', params:{type: 'track'}}" 
+                @click="store.changeDownloads('track')">
+                    <IconSingle class="download__btn-icon"/>
+                    <span class="download__btn--text">Сингл</span>
             </router-link>
-            <router-link class="btn step__btn download__btn" :to="{name: 'step2', params:{type: 'album'}}" @click="store.changeDownloads('album')">
-                <IconAlbum class="download__btn-icon"/>
-                <span class="download__btn--text">Альбом</span>
+            <router-link 
+                class="btn step__btn download__btn" 
+                :to="{name: 'step2', params:{type: 'album'}}" 
+                @click="store.changeDownloads('album')">
+                    <IconAlbum class="download__btn-icon"/>
+                    <span class="download__btn--text">Альбом</span>
             </router-link>        
         </div>
         <QuestionsBase/>

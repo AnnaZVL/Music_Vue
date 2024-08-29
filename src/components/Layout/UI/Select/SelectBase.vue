@@ -2,10 +2,10 @@
 import Choices from 'choices.js'
 import { onMounted } from 'vue'
 
-const props = defineProps(['filterOptions'])
+const props = defineProps(['optionsList', 'id', 'className'])
 
 onMounted(() => {
-  const selectElement = document.getElementById('filter')
+  const selectElement = document.getElementById(`${props.id}`)
   if (selectElement) {
     // Инициализируем Choices
     const choices = new Choices(selectElement, {
@@ -14,7 +14,7 @@ onMounted(() => {
     })
 
     // Добавляем опции из props в Choices
-    props.filterOptions.forEach((option) => {
+    props.optionsList.forEach((option) => {
       choices.setChoices([{ value: option.value, label: option.name }], 'value', 'label', false)
     })
 
@@ -28,7 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <select class="catalog__filter" name="filter" id="filter"></select>
+  <select :class="className" :name="id" :id="id"></select>
 </template>
 
 <style scoped></style>

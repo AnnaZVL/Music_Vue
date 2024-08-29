@@ -1,6 +1,6 @@
 <script setup>
-import FilterCatalog from './components/FilterCatalog.vue'
 import ListCatalog from './components/ListCatalog.vue'
+import SelectBase from '@/components/Layout/UI/Select/SelectBase.vue'
 
 import { filterOptions, listCatalog } from '@/constants/catalogPage'
 </script>
@@ -11,7 +11,7 @@ import { filterOptions, listCatalog } from '@/constants/catalogPage'
       <h5 class="catalog__title">Мой каталог</h5>
       <span class="catalog__header--text">Статистика</span>
 
-      <FilterCatalog :filterOptions="filterOptions"></FilterCatalog>
+      <SelectBase className="catalog__filter" :optionsList="filterOptions" id="filter"></SelectBase>     
     </div>
     <ListCatalog :list="listCatalog"></ListCatalog>
   </section>
