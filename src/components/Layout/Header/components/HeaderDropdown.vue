@@ -5,31 +5,44 @@ import { ref } from 'vue'
 import { menu } from '@/constants/headerPersonal'
 
 const showDrop = ref(false)
+const dropdown = ref(null)
+
 const toggleDropdown = () => {
   showDrop.value = !showDrop.value
+  if (showDrop.value) {
+    document.addEventListener('click', handleDocumentClick)
+  } else {
+    document.removeEventListener('click', handleDocumentClick)
+  }
 }
 
-const closeDropdown = () => {
-  showDrop.value = false
+const handleDocumentClick = (event) => {  
+  if (!dropdown.value.contains(event.target)) {
+    toggleDropdown()
+  }
 }
 </script>
 
-<template ref="dropdown">
-  <NeoButtons id="download" text="Загрузить" @click="toggleDropdown"></NeoButtons>
-  <transition>
-    <ul class="drop__list" v-if="showDrop">
-      <li
-        class="drop__item"
-        v-for="(item, index) in menu"
-        :key="index"
-        @click.stop="closeDropdown"
-        :class="{ disabled: item.disabled }"
-      >
-        <component :is="item.icon" class="drop__icon" />
-        <span class="drop__text">{{ item.text }}</span>
-      </li>
-    </ul>
-  </transition>
+<template >
+  <div ref="dropdown">
+    <NeoButtons id="download" text="Загрузить" @click="toggleDropdown"></NeoButtons>
+    <transition>
+      <ul class="drop__list" v-if="showDrop">        
+        <li
+          class="drop__item"
+          v-for="(item, index) in menu"
+          :key="index"
+          @click.stop="toggleDropdown"
+          :class="{ disabled: item.disabled }"
+        >
+        <router-link :to="item.path">
+          <component :is="item.icon" class="drop__icon" />
+          <span class="drop__text">{{ item.text }}</span>
+        </router-link>
+        </li>
+      </ul>
+    </transition>
+  </div>
 </template>
 
 <style scoped>
@@ -55,7 +68,7 @@ const closeDropdown = () => {
     opacity 0.3s ease-in-out;
 }
 
-.drop__item {
+.drop__item a {
   display: flex;
   align-items: center;
   justify-content: flex-start;

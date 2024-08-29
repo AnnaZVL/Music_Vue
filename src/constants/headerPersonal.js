@@ -6,16 +6,19 @@ export const menu = [
   {
     text: 'Релиз на дистрибуцию',
     icon: IconDisribut,
-    disabled: false
+    disabled: false,
+    path: {name: 'step1', params: {type: 'track'}}
   },
   {
     text: 'Минус на продажу',
     icon: IconMinus,
-    disabled: false
+    disabled: false,
+    path: ''
   },
   {
     text: 'Сделать мультиссылку',
     icon: IconLink,
-    disabled: true
+    disabled: true,
+    path: ''
   }
 ]
