@@ -14,6 +14,10 @@ defineProps({
     default: true
   }
 })
+
+const getImagePath = (imagePath) => {
+  return new URL(imagePath, import.meta.url).href;
+}
 </script>
 
 <template>
@@ -24,7 +28,7 @@ defineProps({
     </IconTextButton>
 
     <a class="event-card__link" href="#">
-      <img :src="event.path" alt="" class="event-card__img" />
+      <img :src="getImagePath(event.path)" alt="" class="event-card__img" />
     </a>
     <div class="event-card__body">
       <div class="event-card__top">
@@ -77,6 +81,7 @@ defineProps({
   background: radial-gradient(circle at bottom, var(--color-blue) -13%, var(--color-bg) 80%);
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .event-card__link {

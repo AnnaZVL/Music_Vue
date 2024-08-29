@@ -13,8 +13,7 @@ defineProps(['events'])
 
 <template>
   <SectionPersonal class="" title="Завершенные события">
-    <template #body>
-      <div class="oldEvent">
+    <template #body>      
         <swiper-container
           class="oldEvent__cards swiper"
           :slides-per-view="2"
@@ -30,19 +29,16 @@ defineProps(['events'])
             </CardEvent>
           </swiper-slide>
         </swiper-container>
-      </div>
+      
     </template>
   </SectionPersonal>
 </template>
 
 <style scoped>
-.oldEvent {
-  position: relative;
-}
-
 .oldEvent__cards {
-  width: 830px;
-  height: 100%;
+  position: relative;
+  width: 850px;
+  height: 800px;
 }
 
 .swiper-slide {
