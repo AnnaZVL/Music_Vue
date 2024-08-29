@@ -19,10 +19,10 @@ const { meta, handleSubmit } = useForm({
     })
 })
 const onSubmit = handleSubmit((values) => {  
+  
+  if (meta.value.valid) { 
     console.log('values', values.name, formData.value.img);
-
-//   if (meta.value.valid) { 
-//   }
+  }
 })
 
 const updateFile = (file) => {
@@ -37,7 +37,7 @@ const updateFile = (file) => {
         <h6 class="form-step__title">Обложка</h6>
         <TultipBase></TultipBase>
       </div>
-      <InputFile name="img" @updateFile="updateFile"></InputFile>
+      <InputFile @updateFile="updateFile"></InputFile>
       <input type="text" name="name">
     </FormDownloads>
 </template>

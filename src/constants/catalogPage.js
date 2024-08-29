@@ -7,7 +7,7 @@ export const filterOptions = [
 export const listCatalog = [
   {
     id: 0,
-    img: '/src/assets/img/personal_page/albums/Miller.jpg',
+    img: new URL('@/assets/img/personal_page/albums/Miller.jpg', import.meta.url).href,
     title: 'Название трека',
     singer: 'Имя исполнителя',
     date: '2024-08-25',
@@ -16,7 +16,7 @@ export const listCatalog = [
   },
   {
     id: 1,
-    img: '/src/assets/img/personal_page/albums/Miller.jpg',
+    img: new URL('@/assets/img/personal_page/albums/Miller.jpg', import.meta.url).href,
     title: 'Название трека',
     singer: 'Имя исполнителя',
     date: '2024-08-25',

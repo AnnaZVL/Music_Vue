@@ -9,6 +9,9 @@ import { swiperList } from '@/constants/heroBase'
 
 register()
 
+const getImagePath = (imagePath) => {
+  return new URL(imagePath, import.meta.url).href;
+}
 </script>
 
 <template>
@@ -28,7 +31,7 @@ register()
           v-for="autor in swiperList"
           :key="autor.id"
         >
-          <img class="top__img" :src="autor.path" alt="" />
+          <img class="top__img" :src="getImagePath(autor.path)" alt="" />
           <div class="top__content">
             <span class="top__name">{{ autor.name }}</span>
             <span class="top__rating">{{ autor.point }} баллов</span>

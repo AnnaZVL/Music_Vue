@@ -13,13 +13,17 @@ const statusList = {
 const statusText = (status) => {
   return statusList[status]?.class
 }
+
+const getImagePath = (imagePath) => {
+  return new URL(imagePath, import.meta.url).href;
+}
 </script>
 
 <template>
   <div class="catalog__list">
     <div class="catalog__item" v-for="item in list" :key="item.id">
       <div class="catalog__item--info">
-        <img class="catalog__item--img" :src="item.img" alt="Обложка песни" />
+        <img class="catalog__item--img" :src="getImagePath(item.img)" alt="Обложка песни" />
         <div class="catalog__item--content">
           <h5 class="catalog__item--name">{{ item.title }}</h5>
           <span class="catalog__item--autor">{{ item.singer }}</span>
