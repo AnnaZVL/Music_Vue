@@ -1,6 +1,10 @@
 <script setup>
 import { stepsList } from '@/constants/downloads';
 
+import { useStateStore } from '@/stores/stateStore';
+
+const stateStore = useStateStore()
+
 import { inject } from 'vue';
 
 const {  activeStep, addStep } =  inject('stepChange')
@@ -13,7 +17,7 @@ const {  activeStep, addStep } =  inject('stepChange')
         <li class="steps__item" 
         v-for="step in stepsList" 
         :key="step.id" 
-        :class="{ active: step.id <= +activeStep }" 
+        :class="{ active: step.id <= +activeStep, disabled: !stateStore.typeDownload.length}" 
         @click="addStep(step.id)">
             <span class="steps__item--text">{{ step.name }}</span>
         </li>        
@@ -33,6 +37,7 @@ const {  activeStep, addStep } =  inject('stepChange')
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     flex: 1;
     text-align: right;
+    cursor: pointer;
     transition: border 0.3s ease-in-out;
 }
 
@@ -47,6 +52,10 @@ const {  activeStep, addStep } =  inject('stepChange')
     background-color: transparent;
     border-radius: 50%;
     transition: background 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.steps__item.disabled {
+    cursor: not-allowed;
 }
 
 .steps__item--text {

@@ -3,11 +3,10 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useStateStore = defineStore('stateStore', () => {
-    const typeDownload = ref('track')
+    const typeDownload = ref('')
 
     function changeDownloads(type) {        
-        typeDownload.value = type
-        console.log('store', typeDownload);
+        typeDownload.value = type;        
     }
 
     return {

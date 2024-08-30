@@ -206,7 +206,7 @@ const isFront = ref(true)
   z-index: 3;
   transform: translateY(-50%);
   pointer-events: none;
-  background-image: url(../img/icons/icon_calendar.svg);
+  background-image: url(@/assets/img/icons/icon_calendar.svg);
   width: 20px;
   height: 20px;
 }

@@ -1,19 +1,17 @@
 <script setup>
 import NeoButtons from '../UI/Buttons/NeoButtons.vue';
-defineProps(['title']);
-// const emits = defineEmits(['updateData'])
-
-// const handleSubmit = (event) => {
-//     emits('updateData', event.target)
-//     console.log('step2');
-// }@submit.prevent="handleSubmit"
+defineProps({
+    title: String, 
+    isDisabled: {
+        default: false,        
+    }});
 </script>
 
 <template>
     <form class="form-step" >
         <h6 class="form-step__title">{{ title }}</h6>
         <slot></slot>
-        <NeoButtons class="form-step__btn" text="Далее" type="submit"></NeoButtons>
+        <NeoButtons class="form-step__btn" text="Далее" type="submit" :disabled="isDisabled"></NeoButtons>
     </form>
 </template>
 
@@ -45,6 +43,15 @@ defineProps(['title']);
     margin-top: auto;
     font-size: 24px;
     max-height: 70px;
+}
+
+.form-step__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 20px;
+  width: 100%;   
+  position: relative;
+  z-index: -1;
 }
 
 </style>

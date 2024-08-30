@@ -7,6 +7,7 @@ import DownloadsBase from '@/views/Downloads/DownloadsBase.vue'
 import StepOne from '@/views/Downloads/components/StepOne.vue'
 import StepTwo from '@/views/Downloads/components/StepTwo.vue'
 import StepThree from '@/views/Downloads/components/StepThree.vue'
+import StepFour from '@/views/Downloads/components/StepFour.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,11 @@ const router = createRouter({
               path: 'step3/:type',
               name: 'step3',
               component: StepThree,              
+            },
+            {
+              path: 'step4/:type',
+              name: 'step4',
+              component: StepFour,              
             },
           ]
         }
