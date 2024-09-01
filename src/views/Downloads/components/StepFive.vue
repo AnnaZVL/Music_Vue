@@ -1,7 +1,7 @@
 <script setup>
 import StepSection from './StepSection.vue';
-import FormStepFourTrack from '@/components/Layout/DownloadsForm/FormStepFourTrack.vue';
-import FormStepFourAlbum from '@/components/Layout/DownloadsForm/FormStepFourAlbum.vue';
+import FormStepFiveTrack from '@/components/Layout/DownloadsForm/FormStepFiveTrack.vue';
+import FormStepThreeAlbum from '@/components/Layout/DownloadsForm/FormStepThreeAlbum.vue';
 
 import { useStateStore } from '@/stores/stateStore';
 
@@ -11,9 +11,9 @@ const store = useStateStore()
 
 <template>
   <StepSection title="Важная информация">
-    <FormStepFourTrack v-if="store.typeDownload === 'track'"/>
+    <FormStepFiveTrack v-if="store.typeDownload === 'track'"/>
     
-    <FormStepFourAlbum v-else />   
+    <FormStepThreeAlbum v-else />   
   </StepSection>
   
 </template>

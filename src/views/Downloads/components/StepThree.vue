@@ -4,13 +4,15 @@ import FormStepThreeTrack from '@/components/Layout/DownloadsForm/FormStepThreeT
 import FormStepThreeAlbum from '@/components/Layout/DownloadsForm/FormStepThreeAlbum.vue';
 
 import { useStateStore } from '@/stores/stateStore';
+import { computed } from 'vue';
 
 const store = useStateStore()
 
+const titleSection = computed(() => store.typeDownload === 'track' ? 'Нужны аудио' : 'Загрузите данные для каждого трека' )
 </script>
 
 <template>
-  <StepSection title="Нужны аудио">
+  <StepSection :title="titleSection">
     <FormStepThreeTrack v-if="store.typeDownload === 'track'"/>
     
     <FormStepThreeAlbum v-else />   

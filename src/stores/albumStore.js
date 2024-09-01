@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 
 import { ref } from 'vue'
 
+import generateRandomId from '@/helpers/randomId'
+
 export const useAlbumStore = defineStore('albumStore', () => {
     const newALbum = ref({
         id: null,        
@@ -15,6 +17,7 @@ export const useAlbumStore = defineStore('albumStore', () => {
                 newALbum.value[key] = data[key]
             }
         }   
+        newALbum.value.id = generateRandomId()
         
         console.log('track store', newALbum.value);
     }

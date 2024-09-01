@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 
 import { ref } from 'vue'
 
+import generateRandomId from '@/helpers/randomId'
+
 export const useTrackStore = defineStore('trackStore', () => {
     const newTrack = ref({
         id: null,
@@ -21,7 +23,7 @@ export const useTrackStore = defineStore('trackStore', () => {
                 newTrack.value[key] = data[key]
             }
         }   
-        
+        newTrack.value.id = generateRandomId()
         console.log('track store', newTrack.value);
     }
 

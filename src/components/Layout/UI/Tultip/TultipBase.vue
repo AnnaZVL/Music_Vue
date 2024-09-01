@@ -19,7 +19,7 @@ import IconTultip from "../SVG/IconTultip.vue";
 <style scoped>
 .tultip {
     position: absolute;
-    top: 50%;
+    top: 25%;
     right: 10px;
     width: 20px;
     transform: translateY(-50%);
@@ -58,5 +58,9 @@ import IconTultip from "../SVG/IconTultip.vue";
 .tultip__btn:hover + .tultip__content {    
     opacity: 1;
     visibility: visible;
+}
+
+.form-step__label--area > .tultip {
+    top: 10%;
 }
 </style>

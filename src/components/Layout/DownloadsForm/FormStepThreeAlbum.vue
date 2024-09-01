@@ -7,43 +7,57 @@ import { useStateStore } from '@/stores/stateStore'
 
 import { useForm } from 'vee-validate'
 import router from '@/router'
+import { ref } from 'vue';
 
-const tracks = []
+const tracks = ref([{}]);
+const isShow = ref(true)
 const albumStore = useAlbumStore();
 const stateStore = useStateStore();
 
-const { meta, handleSubmit } = useForm()
+const { meta, handleSubmit } = useForm({})
 
-const onSubmit = handleSubmit(() => {    
+const onSubmit = handleSubmit(() => {   
   if (meta.value.valid) {   
-    albumStore.addAlbum({tracks}) 
+    albumStore.addAlbum({ tracks: tracks.value })
   }
   router.push({name: 'step4', params: {
     type: `${stateStore.typeDownload}`
   }}) 
 })
 
-const addTrack = (track) => {
-  tracks.value.push(track)
-  console.log('tracks', tracks);
+// Записываем введенные данные в массив треков
+const addTrack = (track, index) => {
+  tracks.value[index] = track; // Обновляем трек по индексу
+  console.log('Updated tracks', tracks.value);
 }
+
+// Добавляем пустой объект, который будет использоваться для нового трека и блок ввода
+const addNewTrack = () => {
+  tracks.value.push({})  
+}
+
+//для кнопки Продилжить, что бы добавить трек, но не создавать новое поле
+const continueAdded = (track, index) => {
+  addTrack(track, index)
+  isShow.value = false
+}
+
 </script>
 
 <template>
-  <FormDownloads title="Загрузите данные для каждого трека" @submit.prevent="onSubmit">
+  <FormDownloads @submit.prevent="onSubmit" :isDisabled="isShow">
     <div class="tracks">    
-      <OneTrack @update-track="addTrack"/>
+      <OneTrack 
+        v-for="(track, index) in tracks" 
+        :key="index" 
+        :track="track"
+        @update-track="(newTrack) => addTrack(newTrack, index)" 
+        @addNewTrack="addNewTrack"
+        @continue-added="(newTrack) => continueAdded(newTrack, index)"
+      />      
     </div>   
   </FormDownloads>
 </template>
 
 <style scoped>
-.tracks {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  width: 100%;
-  position: relative;
-  z-index: 0;
-}
 </style>
