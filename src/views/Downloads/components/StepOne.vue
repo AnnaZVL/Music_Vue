@@ -10,7 +10,7 @@ const store = useStateStore()
 </script>
 
 <template>
-    <StepSection title="Что загружаем ?">
+    <StepSection title="Что загружаем ?">          
         <div class="download__buttons">
             <router-link 
                 class="btn step__btn download__btn" 

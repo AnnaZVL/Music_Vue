@@ -20,25 +20,29 @@ const formData = ref({
   img: ''
 })
 
-const taskStore = useTrackStore();
-const stateStore = useStateStore();
+const trackStore = useTrackStore()
+const stateStore = useStateStore()
 
 const { meta, handleSubmit } = useForm({
   validationSchema: yup.object({
     trackName: yup.string(),
     trackSinger: yup.string(),
     trackDate: yup.string(),
-    trackDateTik: yup.string(),
+    trackDateTik: yup.string()
   })
 })
 const onSubmit = handleSubmit((values) => {
-  const newTrack = {...values, ...formData.value}
-  
+  const newTrack = { ...values, ...formData.value }
+
   if (meta.value.valid) {
-    taskStore.addTrack(newTrack)   
-    router.push({name: 'step3', params: {
-      type: `${stateStore.typeDownload}`
-    }}) 
+    console.log('step2')
+    trackStore.addTrack(newTrack)
+    router.push({
+      name: 'step3',
+      params: {
+        type: `${stateStore.typeDownload}`
+      }
+    })
   }
 })
 
@@ -48,7 +52,7 @@ const updateFile = (file) => {
 </script>
 
 <template>
-  <FormDownloads title="Выберите жанр" @submit.prevent="onSubmit" >
+  <FormDownloads title="Выберите жанр" @submit.prevent="onSubmit">
     <SelectBase v-model="formData.genre" :optionsList="genre" id="genre"> </SelectBase>
     <div class="form-step__box">
       <h6 class="form-step__title">Обложка</h6>
@@ -58,8 +62,8 @@ const updateFile = (file) => {
     <div class="form-step__wrapper">
       <InputText name="trackSinger" title="Исполнитель" placeholder="Имя исполнителя" />
       <InputText name="trackName" title="Название трека" placeholder="Название" />
-      <InputDate name="trackDate" title="Дата основного релиза"/>
-      <InputDate name="trackDateTik" title="Дата выхода в Tik Tok"/>
+      <InputDate name="trackDate" title="Дата основного релиза" />
+      <InputDate name="trackDateTik" title="Дата выхода в Tik Tok" />
     </div>
   </FormDownloads>
 </template>
@@ -73,5 +77,4 @@ const updateFile = (file) => {
 .form-step__box > .tultip {
   right: 60%;
 }
-
 </style>

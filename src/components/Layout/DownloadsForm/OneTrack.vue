@@ -18,9 +18,9 @@ const formData = ref({
 
 const { meta, handleSubmit } = useForm({
   validationSchema: yup.object({
-    trckName: yup.string(),
+    trackName: yup.string(),
     trackSinger: yup.string(),
-    autorMusik: yup.string(),
+    autorMusic: yup.string(),
     autorText: yup.string(),
     trackIsrc: yup.string(),
     trackUpc: yup.string()
@@ -38,8 +38,7 @@ const onSubmit = handleSubmit((values) => {
   const newTrack = {...values, ...formData.value }
   if (meta.value.valid) {
     emits('updateTrack', newTrack)
-    emits('addNewTrack')
-    console.log('one track', newTrack)
+    emits('addNewTrack')    
   }
 })
 
@@ -65,7 +64,7 @@ const continueAdded = handleSubmit((values) => {
     <div class="form-step__wrapper">
       <InputText name="trackName" title="Название трека" placeholder="Название" />
       <InputText name="trackSinger" title="Исполнитель" placeholder="ФИО" />
-      <InputText name="autorMusik" title="Автор музыки" placeholder="ФИО" />
+      <InputText name="autorMusic" title="Автор музыки" placeholder="ФИО" />
       <InputText name="autorText" title="Автор слов" placeholder="ФИО" />
       <InputText name="trackIsrc" title="IRSC" />
       <InputText name="trackUpc" title="UPC" />

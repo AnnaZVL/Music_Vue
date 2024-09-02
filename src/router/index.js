@@ -9,6 +9,7 @@ import StepTwo from '@/views/Downloads/components/StepTwo.vue'
 import StepThree from '@/views/Downloads/components/StepThree.vue'
 import StepFour from '@/views/Downloads/components/StepFour.vue'
 import StepFive from '@/views/Downloads/components/StepFive.vue'
+import StepPayment from '@/views/Downloads/components/StepSix.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -63,6 +64,11 @@ const router = createRouter({
               path: 'step5/:type',
               name: 'step5',
               component: StepFive,              
+            },
+            {
+              path: 'step6/:type',
+              name: 'payment6',
+              component: StepPayment,              
             },
           ]
         }

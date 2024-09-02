@@ -30,7 +30,7 @@ const closeModal = () => {
         <NeoButtons id="sign" text="Войти" @click="openModal" />
         <Teleport to="#wrapper">
           <BaseModal v-if="showModalLogin" @close-modal="closeModal">
-            <LoginModal></LoginModal>
+            <LoginModal></LoginModal>          
           </BaseModal>
         </Teleport>
       </div>

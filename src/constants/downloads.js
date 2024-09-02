@@ -19,6 +19,10 @@ export const stepsList = [
         id: 5,
         name: 'Шаг 5',
     },
+    {
+        id: 6,
+        name: 'Шаг 6',
+    },
 ]
 
 export const questionsList = [

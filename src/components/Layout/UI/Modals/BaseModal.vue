@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, provide } from 'vue'
+import { onMounted, onUnmounted, provide } from 'vue'
 
 const emits = defineEmits(['closeModal'])
 
@@ -10,6 +10,10 @@ const closeModal = () => {
 provide('sign', closeModal)
 onMounted(() => {
   document.body.classList.add('scroll-stop')
+})
+
+onUnmounted(() => {
+  document.body.classList.remove('scroll-stop')
 })
 </script>
 

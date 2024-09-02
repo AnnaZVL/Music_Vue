@@ -15,11 +15,12 @@ const formData = ref({
 
 const isShow = ref(false)
 
-const taskStore = useTrackStore()
+const trackStore = useTrackStore()
 const stateStore = useStateStore()
 
 const onSubmit = () => {
-  taskStore.addTrack({ audio: formData.value.audio })
+  console.log('step3')
+  trackStore.addTrack({ audio: formData.value.audio })
   router.push({
     name: 'step4',
     params: {
@@ -43,11 +44,11 @@ const updateFile = (file) => {
     <transition name="rezalt">
       <div class="added-singl" v-if="isShow">
         <div class="added-singl__img">
-          <img :src="taskStore.newTrack.img || defaultFoto" alt="" />
+          <img :src="trackStore.newTrack.img || defaultFoto" alt="" />
         </div>
         <div class="added-singl__content">
-          <h5 class="added-singl__name">Трек: {{ taskStore.newTrack.trackName }}</h5>
-          <span class="added-singl__autor">Автор: {{ taskStore.newTrack.trackSinger }}</span>
+          <h5 class="added-singl__name">Трек: {{ trackStore.newTrack.trackName }}</h5>
+          <span class="added-singl__autor">Автор: {{ trackStore.newTrack.trackSinger }}</span>
         </div>
       </div>
     </transition>
@@ -85,9 +86,9 @@ const updateFile = (file) => {
 
 .added-singl__img {
   width: 150px;
-  height: 150px;    
+  height: 150px;
   border: 1px solid var(--color-blue);
-  border-radius: 15px;  
+  border-radius: 15px;
 }
 
 .added-singl__img img {

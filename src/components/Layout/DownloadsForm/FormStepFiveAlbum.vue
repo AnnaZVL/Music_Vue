@@ -6,10 +6,10 @@ import { useForm } from 'vee-validate'
 import router from '@/router'
 import * as yup from 'yup'
 
-import { useTrackStore } from '@/stores/trackStore'
+import { useAlbumStore } from '@/stores/albumStore'
 import { useStateStore } from '@/stores/stateStore'
 
-const trackStore = useTrackStore()
+const albumStore = useAlbumStore()
 const stateStore = useStateStore()
 
 const { meta, handleSubmit } = useForm({
@@ -21,10 +21,10 @@ const { meta, handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-  console.log('step5')
+  console.log('step5');
   if (meta.value.valid) {
-    trackStore.addTrack(values)
-    trackStore.rezaltCheck() //Подсчет результата
+    albumStore.addAlbum(values)
+    albumStore.rezaltCheck() //Подсчет результата
     router.push({
       name: 'payment6',
       params: {

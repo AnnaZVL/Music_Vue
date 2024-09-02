@@ -17,18 +17,18 @@ const stateStore = useStateStore();
 const { meta, handleSubmit } = useForm({})
 
 const onSubmit = handleSubmit(() => {   
+  console.log('step 3');
   if (meta.value.valid) {   
     albumStore.addAlbum({ tracks: tracks.value })
+    router.push({name: 'step4', params: {
+      type: `${stateStore.typeDownload}`
+    }}) 
   }
-  router.push({name: 'step4', params: {
-    type: `${stateStore.typeDownload}`
-  }}) 
 })
 
 // Записываем введенные данные в массив треков
 const addTrack = (track, index) => {
   tracks.value[index] = track; // Обновляем трек по индексу
-  console.log('Updated tracks', tracks.value);
 }
 
 // Добавляем пустой объект, который будет использоваться для нового трека и блок ввода

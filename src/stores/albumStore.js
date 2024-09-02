@@ -10,6 +10,7 @@ export const useAlbumStore = defineStore('albumStore', () => {
         img: '',
         tracks: []
     })
+    const rezalt = ref(20000)
 
     function addAlbum(data) {    
         for (const key in data) {
@@ -19,12 +20,29 @@ export const useAlbumStore = defineStore('albumStore', () => {
         }   
         newALbum.value.id = generateRandomId()
         
-        console.log('track store', newALbum.value);
+        console.log('album store', newALbum.value);
     }
+
+    function rezaltCheck(props = 0) {
+        rezalt.value = 10000 + +props
+      }
+    
+      function addPromo(cod) {
+        const promoCode = {
+          one: 1000,
+          two: 2000
+        }
+        console.log(cod, promoCode[cod])
+        rezalt.value = rezalt.value - promoCode[cod]
+        console.log('store promo', rezalt.value)
+      }
 
     return {
         newALbum,
-        addAlbum        
+        rezalt,
+        addAlbum,
+        rezaltCheck,
+        addPromo       
     }
 })
  

@@ -32,7 +32,9 @@ const { meta, handleSubmit } = useForm({
     albumDateTik: yup.string(),
   })
 })
+
 const onSubmit = handleSubmit((values) => {
+  console.log('step 2');
   const newAlbum = {...values, ...formData.value};
 
   if (meta.value.valid) {
@@ -40,12 +42,12 @@ const onSubmit = handleSubmit((values) => {
     router.push({name: 'step3', params: {
       type: `${stateStore.typeDownload}`
     }}) 
-    console.log('values', values, formData.value)
   }
 })
 
+// Добавляем картинку
 const updateFile = (file) => {
-  formData.value.img = file 
+  formData.value.img = URL.createObjectURL(file)
 }
 </script>
 

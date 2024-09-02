@@ -13,6 +13,7 @@ const route = useRoute()
 
 const addStep = (id) => {
     activeStep.value = id;
+    
     router.push({name: `step${activeStep.value}`, params:{type: store.typeDownload}})    
 }
 provide('stepChange', { activeStep, addStep })
@@ -21,7 +22,7 @@ watch(
     () =>  route.name, 
   (newPath) => {   
     const currentStep = newPath.slice(-1)  
-    activeStep.value = currentStep;
+    activeStep.value = currentStep;    
 },
 { immediate: true }
 )

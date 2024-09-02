@@ -1,5 +1,6 @@
 <script setup>
-import NeoButtons from '../UI/Buttons/NeoButtons.vue';
+import NeoButtons from '@/components/Layout/UI/Buttons/NeoButtons.vue';
+
 defineProps({
     title: String, 
     isDisabled: {
@@ -53,6 +54,12 @@ defineProps({
   width: 100%;   
   position: relative;
   z-index: -1;
+}
+
+.step__section--box {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .upload-singl-box {
