@@ -44,8 +44,8 @@ img {
 
 @font-face {
   font-family: 'Montserrat';
-  src: url(../fonts/MontserratRegular.woff) format('woff'),
-      url(../fonts/MontserratRegular.woff2) format('woff2');
+  src: url('@/assets/fonts/MontserratRegular.woff') format('woff'),
+  url('@/assetsassets/fonts/MontserratRegular.woff2') format('woff2');
   font-weight: 400;    
 font-style: normal;
   font-display: swap;
@@ -53,8 +53,8 @@ font-style: normal;
 
 @font-face {
   font-family: 'Montserrat';
-  src: url(../fonts/MontserratMedium.woff) format('woff'),
-      url(../fonts/MontserratMedium.woff2) format('woff2');
+  src: url('@/assets/fonts/MontserratMedium.woff') format('woff'),
+  url('@/assets/fonts/MontserratMedium.woff2') format('woff2');
   font-weight: 500;    
 font-style: normal;
   font-display: swap;
@@ -62,8 +62,8 @@ font-style: normal;
 
 @font-face {
   font-family: 'Montserrat';
-  src: url(../fonts/MontserratBold.woff) format('woff'),
-      url(../fonts/MontserratBold.woff2) format('woff2');
+  src: url('@/assets/fonts/MontserratBold.woff') format('woff'),
+  url('@/assets/fonts/MontserratBold.woff2') format('woff2');
   font-weight: 700;    
 font-style: normal;
   font-display: swap;
