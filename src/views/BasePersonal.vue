@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import AsidePersonal from '@/components/Layout/Aside/AsidePersonal.vue'
-import HeaderPersonal from '@/components/Layout/Header/HeaderPersonal.vue'
 
 const showAside = ref(true)
 
@@ -11,7 +10,6 @@ const toggleAside = () => {
 </script>
 
 <template>
-  <HeaderPersonal></HeaderPersonal>
   <main class="main-personal">
     <div class="main-personal__container container">
       <button

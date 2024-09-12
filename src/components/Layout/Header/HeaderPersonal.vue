@@ -5,11 +5,20 @@ import BaseLogo from '../UI/SVG/BaseLogo.vue'
 import HeaderDropdown from './components/HeaderDropdown.vue'
 import BaseModal from '@/components/Layout/UI/Modals/BaseModal.vue'
 import LoginModal from '../FormLogin/LoginModal.vue'
+import UserBox from './components/UserBox.vue'
+
+import { useUserStore } from '@/stores/userStore'
 
 const showModalLogin = ref(false)
 
+const userStore = useUserStore();
+
 const openModal = () => {
-  showModalLogin.value = !showModalLogin.value
+  if (userStore.isAuthorized) {
+    userStore.logout(); // Выход из системы
+  } else {
+    showModalLogin.value = !showModalLogin.value
+  }
 }
 
 const closeModal = () => {
@@ -25,15 +34,16 @@ const closeModal = () => {
       </router-link>
 
       <div class="header__buttons">
+        <UserBox v-if="userStore.isAuthorized"/>
         <HeaderDropdown />
 
-        <NeoButtons id="sign" text="Войти" @click="openModal" />
+        <NeoButtons id="sign" :text="userStore.isAuthorized ? 'Выйти' : 'Войти'" @click="openModal" />
+      </div>
         <Teleport to="#wrapper">
           <BaseModal v-if="showModalLogin" @close-modal="closeModal">
             <LoginModal></LoginModal>          
           </BaseModal>
-        </Teleport>
-      </div>
+        </Teleport>      
     </div>
   </header>
   <transition> </transition>

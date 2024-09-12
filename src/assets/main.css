@@ -19,13 +19,6 @@ body {
   overflow: hidden;
 }
 
-.main {
-  margin-top: 40px;
-  height: 100%;
-  width: 100%;
-  flex: 1;
-}
-
 .wrapper {
   position: relative;
   display: flex;
