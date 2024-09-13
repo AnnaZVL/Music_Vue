@@ -20,11 +20,13 @@ onMounted(() => {
   const btnNext = document.getElementById('btnNext');
   const btnPrev = document.getElementById('btnPrev');
 
+  
   if (swiperEl && swiperEl.swiper) {
     const updateButtons = () => {
       isPrevDisabled.value = swiperEl.swiper.isBeginning;
       isNextDisabled.value = swiperEl.swiper.isEnd;
     };
+
      // Первоначальная проверка
      updateButtons();
 
@@ -39,18 +41,23 @@ onMounted(() => {
       swiperEl.swiper.slidePrev();
     });
   }
+     // Удаление предустановленных элементов навигации
+  const defaultNavButtons = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
+  defaultNavButtons.forEach(btn => btn.remove());  // Удаляем встроенные кнопки
+  
 });
 </script>
+
 
 <template>
   <SectionPersonal class="oldEvent" title="Завершенные события">
     <template #body>
       <swiper-container
         class="oldEvent__cards swiper"
+        navigation="false"
         :slides-per-view="2"
         :slides-per-group="1"
         :space-between="20"
-        navigation="false"
       >
         <swiper-slide class="swiper-slide" v-for="event in events" :key="event.id">
           <CardEvent :event="event" :isRegistered="false">
@@ -73,7 +80,7 @@ onMounted(() => {
   </SectionPersonal>
 </template>
 
-<style scoped>
+<style >
 .oldEvent {
   position: relative;
 }
@@ -133,4 +140,8 @@ onMounted(() => {
   fill: var(--color-second);
 }
 
+.swiper > .swiper-button-next,
+.swiper > .swiper-button-prev {
+  display: none !important;
+}
 </style>

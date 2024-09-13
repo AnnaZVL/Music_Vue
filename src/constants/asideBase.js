@@ -40,10 +40,10 @@ export const secondMenu = [
   },
   {
     id: 21,
-    text: 'Статистика',
+    text: 'Загрузить на дистрибуцию',
     icon: IconStatic,
-    path: '',
-    disabled: true
+    path: {name: 'step1', params: {type: 'track'}},
+    disabled: false
   },
   {
     id: 22,

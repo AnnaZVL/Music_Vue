@@ -15,6 +15,7 @@ import StepPayment from '@/views/Downloads/components/StepSix.vue'
 import HeaderHome from '@/components/Layout/Header/HeaderHome.vue'
 import HeaderPersonal from '@/components/Layout/Header/HeaderPersonal.vue'
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [

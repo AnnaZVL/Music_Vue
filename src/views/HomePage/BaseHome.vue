@@ -1,9 +1,11 @@
 <script setup>
 import ContactsBase from './components/ContactsBase.vue'
 import HomePlayer from './components/HomePlayer.vue'
+import BubbleBase from '@/views/HomePage/components/BubbleBase.vue'
 </script>
 
 <template>
+  <BubbleBase/>
   <main class="main">
     <section class="hero">
       <div class="hero__container container">
