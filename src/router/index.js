@@ -47,7 +47,8 @@ const router = createRouter({
         {
           path: 'downloads',
           name: 'downloads',
-          component: DownloadsBase,
+          component: DownloadsBase, 
+                 
           children: [
             {
               path: 'step1/:type',

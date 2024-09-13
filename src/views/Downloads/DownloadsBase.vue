@@ -2,7 +2,7 @@
 import StepsList from './components/StepsList.vue'
 
 import { provide, ref, watch } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter, useRoute, onBeforeRouteLeave } from 'vue-router';
 import { useStateStore } from '@/stores/stateStore';
 
 const store = useStateStore();
@@ -26,6 +26,14 @@ watch(
 },
 { immediate: true }
 )
+
+onBeforeRouteLeave((to, from, next) => {
+  if (to.name === 'downloads') {
+    next({ name: 'step1', params: { type: 'default' } });
+  } else {
+    next();
+  }
+} )
 </script>
 
 <template>
