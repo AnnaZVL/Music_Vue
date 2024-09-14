@@ -13,7 +13,6 @@ import { ref } from 'vue'
 
 import { useTrackStore } from '@/stores/trackStore'
 import { useStateStore } from '@/stores/stateStore'
-import router from '@/router'
 
 const formData = ref({
   genre: '',
@@ -37,12 +36,7 @@ const onSubmit = handleSubmit((values) => {
   if (meta.value.valid) {
     console.log('step2')
     trackStore.addTrack(newTrack)
-    router.push({
-      name: 'step3',
-      params: {
-        type: `${stateStore.typeDownload}`
-      }
-    })
+    stateStore.changeStep(3)    
   }
 })
 

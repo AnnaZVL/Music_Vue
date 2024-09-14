@@ -6,7 +6,6 @@ import { useAlbumStore } from '@/stores/albumStore'
 import { useStateStore } from '@/stores/stateStore'
 
 import { useForm } from 'vee-validate'
-import router from '@/router'
 import { ref } from 'vue';
 
 const tracks = ref([{}]);
@@ -20,9 +19,7 @@ const onSubmit = handleSubmit(() => {
   console.log('step 3');
   if (meta.value.valid) {   
     albumStore.addAlbum({ tracks: tracks.value })
-    router.push({name: 'step4', params: {
-      type: `${stateStore.typeDownload}`
-    }}) 
+    stateStore.changeStep(4)  
   }
 })
 

@@ -5,13 +5,16 @@ import BaseModal from '@/components/Layout/UI/Modals/BaseModal.vue'
 import FormAgreement from '../DownloadsForm/FormAgreement/FormAgreement.vue'
 import defaultFoto from '@/assets/img/personal_page/no-photo.jpg'
 
-import { useTrackStore } from '@/stores/trackStore'
+import { useTrackStore } from '@/stores/trackStore';
+import { useStateStore } from '@/stores/stateStore'
 
 import { useForm } from 'vee-validate'
 import { ref } from 'vue'
 import * as yup from 'yup'
 
 const trackStore = useTrackStore()
+const stateStore = useStateStore()
+
 const showModal = ref(false)
 const isVisible = ref(false)
 const isDisabled = ref(true)
@@ -25,6 +28,7 @@ const { meta, handleSubmit } = useForm({
 const onSubmit = handleSubmit((values) => {
   if (meta.value.valid) {
     console.log('OK', values)
+    stateStore.changeStep(1) 
   }
 })
 

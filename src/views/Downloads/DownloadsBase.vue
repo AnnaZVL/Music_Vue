@@ -1,39 +1,31 @@
 <script setup>
 import StepsList from './components/StepsList.vue'
+import StepOne from './components/StepOne.vue';
+import StepTwo from './components/StepTwo.vue';
+import StepThree from '@/views/Downloads/components/StepThree.vue'
+import StepFour from '@/views/Downloads/components/StepFour.vue'
+import StepFive from '@/views/Downloads/components/StepFive.vue'
+import StepPayment from '@/views/Downloads/components/StepSix.vue'
 
-import { provide, ref, watch } from 'vue';
-import { useRouter, useRoute, onBeforeRouteLeave } from 'vue-router';
+import { computed } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 
-const store = useStateStore();
+const stateStore = useStateStore();
 
-const activeStep = ref(1);
-const router = useRouter()
-const route = useRoute()
+const stepsComponents = [
+  {step: 1, component: StepOne},
+  {step: 2, component: StepTwo},
+  {step: 3, component: StepThree},
+  {step: 4, component: StepFour},
+  {step: 5, component: StepFive},
+  {step: 6, component: StepPayment},
+]
 
-const addStep = (id) => {
-    activeStep.value = id;
-    
-    router.push({name: `step${activeStep.value}`, params:{type: store.typeDownload}})    
-}
-provide('stepChange', { activeStep, addStep })
-
-watch(
-    () =>  route.name, 
-  (newPath) => {   
-    const currentStep = newPath.slice(-1)  
-    activeStep.value = currentStep;    
-},
-{ immediate: true }
-)
-
-onBeforeRouteLeave((to, from, next) => {
-  if (to.name === 'downloads') {
-    next({ name: 'step1', params: { type: 'default' } });
-  } else {
-    next();
-  }
-} )
+const steps = computed(() => {
+  const currentComponent = stepsComponents.find(step => step.step === stateStore.currentStep)
+  
+  return currentComponent.component
+})
 </script>
 
 <template>
@@ -41,7 +33,7 @@ onBeforeRouteLeave((to, from, next) => {
     <div class="download__top">
       <StepsList ></StepsList>
     </div>
-    <router-view></router-view>
+    <component :is="steps"></component>
   </div>
 </template>
 

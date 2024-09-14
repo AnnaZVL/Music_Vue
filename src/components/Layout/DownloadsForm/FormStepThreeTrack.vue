@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import router from '@/router'
 
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
 import InputAudio from '@/components/Layout/DownloadsForm/InputAudio.vue'
@@ -21,12 +20,7 @@ const stateStore = useStateStore()
 const onSubmit = () => {
   console.log('step3')
   trackStore.addTrack({ audio: formData.value.audio })
-  router.push({
-    name: 'step4',
-    params: {
-      type: `${stateStore.typeDownload}`
-    }
-  })
+  stateStore.changeStep(4) 
 }
 
 const updateFile = (file) => {

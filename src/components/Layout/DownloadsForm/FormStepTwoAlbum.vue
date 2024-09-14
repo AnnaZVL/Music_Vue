@@ -11,7 +11,6 @@ import { genre } from '@/constants/downloads'
 import { useForm } from 'vee-validate'
 import * as yup from 'yup'
 import { ref } from 'vue'
-import router from '@/router'
 
 import { useAlbumStore } from '@/stores/albumStore'
 import { useStateStore } from '@/stores/stateStore'
@@ -39,9 +38,7 @@ const onSubmit = handleSubmit((values) => {
 
   if (meta.value.valid) {
     albumStore.addAlbum(newAlbum)
-    router.push({name: 'step3', params: {
-      type: `${stateStore.typeDownload}`
-    }}) 
+    stateStore.changeStep(3)
   }
 })
 

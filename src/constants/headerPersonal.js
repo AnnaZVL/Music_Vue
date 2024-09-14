@@ -7,7 +7,7 @@ export const menu = [
     text: 'Релиз на дистрибуцию',
     icon: IconDisribut,
     disabled: false,
-    path: {name: 'step1', params: {type: 'track'}}
+    path: {name: 'downloads'}
   },
   {
     text: 'Минус на продажу',

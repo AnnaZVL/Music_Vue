@@ -6,12 +6,15 @@ import FormAgreement from './FormAgreement/FormAgreement.vue'
 import defaultFoto from '@/assets/img/personal_page/no-photo.jpg'
 
 import { useAlbumStore } from '@/stores/albumStore'
+import { useStateStore } from '@/stores/stateStore'
 
 import { useForm } from 'vee-validate'
 import { ref } from 'vue'
 import * as yup from 'yup'
 
 const albumStore = useAlbumStore()
+const stateStore = useStateStore()
+
 const showModal = ref(false)
 const isVisible = ref(false)
 const isDisabled = ref(true)
@@ -25,6 +28,7 @@ const { meta, handleSubmit } = useForm({
 const onSubmit = handleSubmit(() => {
   if (meta.value.valid) {
     console.log('Album added', albumStore.newALbum)
+    stateStore.changeStep(1) 
   }
 })
 

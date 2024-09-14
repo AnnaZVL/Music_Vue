@@ -3,7 +3,6 @@ import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
 import InputText from './InputText.vue'
 
 import { useForm } from 'vee-validate'
-import router from '@/router'
 import * as yup from 'yup'
 
 import { useAlbumStore } from '@/stores/albumStore'
@@ -21,16 +20,11 @@ const { meta, handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-  console.log('step5');
+  console.log('step5 album');
   if (meta.value.valid) {
     albumStore.addAlbum(values)
     albumStore.rezaltCheck() //Подсчет результата
-    router.push({
-      name: 'payment6',
-      params: {
-        type: `${stateStore.typeDownload}`
-      }
-    })
+    stateStore.changeStep(6) 
   }
 })
 </script>

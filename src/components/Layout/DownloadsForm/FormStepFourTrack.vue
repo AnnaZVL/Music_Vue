@@ -5,7 +5,6 @@ import InputTextarea from '@/components/Layout/DownloadsForm/InputTextarea.vue';
 
 import { useForm } from 'vee-validate'
 import * as yup from 'yup'
-import router from '@/router'
 
 import { useTrackStore } from '@/stores/trackStore';
 import { useStateStore } from '@/stores/stateStore'
@@ -24,12 +23,10 @@ const { meta, handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {  
-  console.log('step4');
+  console.log('step4 track');
   if (meta.value.valid) {  
     trackStore.addTrack({...values}) 
-    router.push({name: 'step5', params: {
-    type: `${stateStore.typeDownload}`
-  }}) 
+    stateStore.changeStep(5) 
   }
 })
 </script>
