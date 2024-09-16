@@ -1,10 +1,14 @@
 <script setup>
 import handImg from '@/assets/img/home_page/2hand.png'
 import { onMounted, ref } from 'vue'
+import videoOne from '@/assets/img/home_page/train.mp4'
+import videoTwo from '@/assets/img/home_page/IG-stories.mp4'
+import { useRoute } from 'vue-router'
 
-const videos = ['/src/assets/img/home_page/train.mp4', '/src/assets/img/home_page/IG-stories.mp4']
+const videos = [videoOne, videoTwo]
 let currentVideoIndex = ref(0)
 const videoPlayer = ref(null)
+const route = useRoute()
 
 const playVideo = (index) => {
   if (index < videos.length && videoPlayer.value) {
@@ -14,12 +18,11 @@ const playVideo = (index) => {
 }
 
 const changePlay = () => {
-  if (videoPlayer.value) {
+  if (videoPlayer.value && route.name === 'home') {
     videoPlayer.value.play()
 
     // Установите таймер для переключения видео через 3 секунды
-    setTimeout(() => {
-      videoPlayer.value.pause()
+    setTimeout(() => {      
       if (currentVideoIndex.value === videos.length - 1) {
         currentVideoIndex.value = 0
       } else {
@@ -31,8 +34,8 @@ const changePlay = () => {
   }
 }
 
-onMounted(() => {
-  if (videoPlayer.value) {
+onMounted(() => {  
+  if (videoPlayer.value && route.name === 'home') {
     playVideo(currentVideoIndex.value)
   }
 })

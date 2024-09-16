@@ -1,16 +1,17 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
-import { useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 const bublContainer = ref(null)
 const route = useRoute()
 const dots = []
 
 const createdot = (initial = false) => {
-  const dot = document.createElement('div')
-  dot.classList.add('dot')
+  if (route.name === 'home') {
+    const dot = document.createElement('div')
+    dot.classList.add('dot')
 
-  dot.style.left = `${Math.random() * 100}%`
+    dot.style.left = `${Math.random() * 100}%`
 
     if (initial) {
       dot.style.bottom = `${Math.random() * 100}vh`
@@ -23,29 +24,18 @@ const createdot = (initial = false) => {
       dot.style.animationDuration = `${45 + Math.random() * 5}s`
     }
 
+    bublContainer.value.appendChild(dot)
 
-  bublContainer.value.appendChild(dot)
+    dots.push(dot)
 
-  dots.push(dot);
-
-  dot.addEventListener('animationend', () => {
-    dot.remove()
-  })
+    dot.addEventListener('animationend', () => {
+      dot.remove()
+    })
+  }
 }
 
-// Удаляем все точки при размонтировании компонента
-const removeAllDots = () => {
-  dots.forEach((dot) => {
-    if (dot && dot.parentNode) {
-      dot.remove(); // Удаляем каждую точку из DOM
-    }
-  });
-  dots.length = 0; // Очищаем массив
-};
-
 onMounted(() => {
-  
-  if (route.path === '/' && bublContainer.value) {
+  if (route.name === 'home' && bublContainer.value) {
     for (let i = 0; i < 450; i++) {
       createdot(true)
     }
@@ -53,16 +43,13 @@ onMounted(() => {
     setInterval(() => createdot(), 500)
   }
 })
-onUnmounted(() => {
-  removeAllDots()
-})
 </script>
 
 <template>
   <div class="bubl__container" ref="bublContainer" v-if="route.path === '/'"></div>
 </template>
 
-<style >
+<style>
 .bubl__container {
   position: absolute;
   width: 100%;
