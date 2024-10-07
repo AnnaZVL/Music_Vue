@@ -1,11 +1,9 @@
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+html {  
   scroll-behavior: smooth;
 }
 
 *, ::after, ::before {
-  -webkit-box-sizing: inherit;
+  
           box-sizing: inherit;
 }
 
@@ -38,6 +36,7 @@ img {
   --color-prime: #f41f04;
   --color-second: #f29069;
   --color-blue: #535ff6;
+  --color-drop: #1e1e5e;
   --color-blue-r: 83, 95, 246;
   --color-gray: #aaa;    
 }

@@ -10,7 +10,6 @@ defineProps(['showAside'])
 
 const showMenu = ref(true)
 const activeIndex = ref(0)
-// const router = useRouter()
 const route = useRoute()
 
 const toggleMenu = () => {
@@ -41,9 +40,9 @@ const setActiveItem = (index) => {
 </script>
 
 <template>
-  <aside class="aside-personal" :class="{ hidden: !showAside }">
-    <div class="aside-personal__inner">
-      <div class="aside-personal__box">
+  <aside class="aside" :class="{ hidden: !showAside }">
+    <div class="aside__inner">
+      <div class="aside__box">
         <AsideList
           :list="topMenu"
           :activeIndex="activeIndex"
@@ -51,7 +50,7 @@ const setActiveItem = (index) => {
           :showMenu="true"
         ></AsideList>
       </div>
-      <div class="aside-personal__box">
+      <div class="aside__box">
         <h4 class="aside-menu__title">Дистрибуция</h4>
         <button
           class="btn box__close"
@@ -73,7 +72,7 @@ const setActiveItem = (index) => {
 </template>
 
 <style scoped>
-.aside-personal {
+.aside {
   padding: 40px 20px;
   flex-shrink: 0;
   width: 300px;
@@ -90,7 +89,7 @@ const setActiveItem = (index) => {
     border 0.3s ease-in-out;
 }
 
-.aside-personal.hidden {
+.aside.hidden {
   padding: 40px 0;
   width: 0;
   opacity: 0;
@@ -99,7 +98,7 @@ const setActiveItem = (index) => {
   border-right: none;
 }
 
-.aside-personal__inner {
+.aside__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,7 +107,7 @@ const setActiveItem = (index) => {
   width: 100%;
 }
 
-.aside-personal__box {
+.aside__box {
   position: relative;
   width: 100%;
 }

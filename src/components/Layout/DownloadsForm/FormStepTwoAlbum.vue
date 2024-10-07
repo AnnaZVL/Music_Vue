@@ -2,9 +2,9 @@
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
 import SelectBase from '@/components/Layout/UI/Select/SelectBase.vue'
 import TultipBase from '@/components/Layout/UI/Tultip/TultipBase.vue'
-import InputFile from '@/components/Layout/DownloadsForm/InputFile.vue'
-import InputText from '@/components/Layout/DownloadsForm/InputText.vue'
-import InputDate from '@/components/Layout/DownloadsForm/InputDate.vue'
+import InputFile from '@/components/Layout/DownloadsForm/components/InputFile.vue'
+import InputText from '@/components/Layout/DownloadsForm/components/InputText.vue'
+import InputDate from '@/components/Layout/DownloadsForm/components/InputDate.vue'
 
 import { genre } from '@/constants/downloads'
 
@@ -33,7 +33,7 @@ const { meta, handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-  console.log('step 2');
+  console.log('step 2 album');
   const newAlbum = {...values, ...formData.value};
 
   if (meta.value.valid) {

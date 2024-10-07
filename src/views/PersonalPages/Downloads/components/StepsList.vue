@@ -5,12 +5,16 @@ import { useStateStore } from '@/stores/stateStore'
 
 const stateStore = useStateStore()
 
-import { ref } from 'vue'
-const activeStep = ref(1)
+import { computed } from 'vue'
 
-const addStep = () => {
-  activeStep.value += 1
-  stateStore.changeStep(1)
+const activeStep = computed(() => stateStore.currentStep)
+
+const emit = defineEmits(['change-step'])
+
+const changeStep = (stepId) => {
+  if (stepId <= activeStep.value || stepId === activeStep.value) {
+    emit('change-step', stepId)
+  }
 }
 </script>
 
@@ -24,7 +28,7 @@ const addStep = () => {
         active: step.id <= stateStore.currentStep,
         disabled: !stateStore.typeDownload.length
       }"
-      @click="addStep(step.id)"
+      @click="changeStep(step.id)"
     >
       <span class="steps__item--text">{{ step.name }} </span>
     </li>
@@ -44,7 +48,7 @@ const addStep = () => {
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   flex: 1;
   text-align: right;
-  cursor: pointer;
+  cursor: not-allowed;
   transition: border 0.3s ease-in-out;
 }
 
@@ -76,6 +80,7 @@ const addStep = () => {
 }
 
 .steps__item.active {
+  cursor: pointer;
   border-bottom-color: var(--color-second);
 }
 

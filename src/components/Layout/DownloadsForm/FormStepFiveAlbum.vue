@@ -1,6 +1,6 @@
 <script setup>
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
-import InputText from './InputText.vue'
+import InputText from './components/InputText.vue'
 
 import { useForm } from 'vee-validate'
 import * as yup from 'yup'
@@ -20,7 +20,7 @@ const { meta, handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-  console.log('step5 album');
+  console.log('step 5 album');
   if (meta.value.valid) {
     albumStore.addAlbum(values)
     albumStore.rezaltCheck() //Подсчет результата

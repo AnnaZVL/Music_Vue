@@ -1,6 +1,6 @@
 <script setup>
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
-import TextBlock from '@/components/Layout/DownloadsForm/TextBlock.vue'
+import TextBlock from '@/components/Layout/DownloadsForm/components/TextBlock.vue'
 
 import { useAlbumStore } from '@/stores/albumStore'
 import { useStateStore } from '@/stores/stateStore'
@@ -40,36 +40,5 @@ const updateTrackText = ({ trackId, text }) => {
     </div>
   </FormDownloads>
 </template>
-<!-- <div class="step__section--single step__section--box">
-  
-  
-      <div class="additionally__card">
-          <img
-              class="additionally__card--img"
-              src="{% static 'main/img/personal_page/Eosella.jpg' %}"
-              alt=""
-          />
-          <div class="additionally__card--body">
-              <span class="additionally__card--price">1000</span>
-              <span class="additionally__card--text"
-                  >Придумаем отличное описание Lorem ipsum dolor sit amet, consectetur
-                  adipisicing elit. Ad, voluptatem.</span
-              >
-          </div>
-          <button class="btn additionally__card--btn">Добавить</button>
-      </div>
-      <div class="additionally__card">
-          <img
-              class="additionally__card--img"
-              src="{% static 'main/img/personal_page/Eosella.jpg' %}"
-              alt=""
-          />
-          <div class="additionally__card--body">
-              <span class="additionally__card--price">2000</span>
-              <span class="additionally__card--text">Нарисуем красивую обложку</span>
-          </div>
-          <button class="btn additionally__card--btn">Добавить</button>
-      </div>
-  </div>
-</div> -->
+
 <style scoped></style>

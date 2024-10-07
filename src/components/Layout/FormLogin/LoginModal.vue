@@ -75,7 +75,7 @@ const isFront = ref(true)
 
 .card-front,
 .card-back {
-  width: 100%;
+  padding: 10px;
   height: 100%;
   background-color: #2a2b38;
   background-position: bottom center;
@@ -85,6 +85,7 @@ const isFront = ref(true)
   border-radius: 6px;
   left: 0;
   top: 0;
+  right: 0;
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
@@ -99,11 +100,9 @@ const isFront = ref(true)
 
 .center-wrap {
   position: absolute;
-  width: 100%;
-  padding: 0 35px;
-  top: 50%;
-  left: 0;
-  transform: translate3d(0, -50%, 35px) perspective(100px);
+  top: 10px;
+  left: 25px;
+  right: 75px;
   z-index: 20;
   display: block;
 }
@@ -142,78 +141,5 @@ const isFront = ref(true)
 .form__btn:disabled {
   filter: brightness(50%);
   cursor: not-allowed;
-}
-
-.form__link {
-  font-size: 18px;
-  text-decoration: underline;
-  transition: color 0.3s ease-in-out;
-}
-
-.form__link:hover {
-  color: var(--color-second);
-}
-
-.form-agreement {
-  margin-bottom: 20px;
-  overflow-y: auto;
-  max-height: 600px;
-  height: 100%;
-}
-.modal__form--title {
-  font-size: 28px;
-}
-
-.modal__form--subtitle {
-  font-size: 18px;
-}
-
-.modal__form--box {
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  height: 100%;
-  background-color: #2a2b38;
-  border-radius: 6px;
-}
-
-.modal__form--box input[type='date'] {
-  padding: 13px 20px;
-  position: relative;
-  height: 48px;
-  width: 100%;
-  font-weight: 500;
-  border-radius: 4px;
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0.5px;
-  outline: none;
-  color: var(--color-gray);
-  background-color: var(--color-bg);
-  border: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.modal__form--box input[type='date']::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  z-index: 3;
-  transform: translateY(-50%);
-  pointer-events: none;
-  background-image: url(@/assets/img/icons/icon_calendar.svg);
-  width: 20px;
-  height: 20px;
-}
-
-.modal__form--row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 </style>

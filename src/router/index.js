@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import BaseHome from '@/views/HomePage/BaseHome.vue'
-import BasePersonal from '@/views/BasePersonal.vue'
-import HeroPersonal from '@/views/HeroBlock/HeroPersonal.vue'
-import EventPersonal from '@/views/Events/EventPersonal.vue'
-import CatalogPersonal from '@/views/Catalog/CatalogPersonal.vue'
-import DownloadsBase from '@/views/Downloads/DownloadsBase.vue'
+import BasePersonal from '@/views/PersonalPages/BasePersonal.vue'
+import HeroPersonal from '@/views/PersonalPages/HeroBlock/HeroPersonal.vue'
+import EventPersonal from '@/views/PersonalPages/Events/EventPersonal.vue'
+import CatalogPersonal from '@/views/PersonalPages/Catalog/CatalogPersonal.vue'
+import DownloadsBase from '@/views/PersonalPages/Downloads/DownloadsBase.vue'
 
 import HeaderHome from '@/components/Layout/Header/HeaderHome.vue'
 import HeaderPersonal from '@/components/Layout/Header/HeaderPersonal.vue'

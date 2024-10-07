@@ -3,7 +3,7 @@ import TultipBase from '@/components/Layout/UI/Tultip/TultipBase.vue'
 
 import { useField } from 'vee-validate'
 
-const props = defineProps(['title', 'name', ])
+const props = defineProps(['title', 'name'])
 
 const { value } = useField(props.name)
 </script>

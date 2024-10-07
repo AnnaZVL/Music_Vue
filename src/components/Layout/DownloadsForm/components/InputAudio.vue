@@ -23,7 +23,7 @@ const onFileChange = (event) => {
         </div>
         <div class="upload-singl-info" v-else>
             <span class="upload-singl-text">Файл успешно загружен</span>
-            <span class="upload-singl-text upload-singl-name">{{ selectedFile.name }}</span>
+            <span class="upload-singl-subtext">{{ selectedFile.name }}</span>
         </div>
     </div>    
 </template>

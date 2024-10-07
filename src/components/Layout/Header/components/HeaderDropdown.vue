@@ -59,8 +59,8 @@ const handleDocumentClick = (event) => {
   gap: 20px;
   min-width: 200px;
   width: max-content;
-  min-height: 150px;
-  background-color: rgba(var(--color-blue-r), 0.2);
+  min-height: 100px;
+  background-color: var(--color-drop);
   border-radius: 20px;
   transition:
     transform 0.3s ease-in-out,
@@ -75,7 +75,7 @@ const handleDocumentClick = (event) => {
   gap: 15px;
 }
 
-.drop__item.disabled {
+.drop__item.disabled a {
   filter: brightness(50%);
   cursor: not-allowed;
 }

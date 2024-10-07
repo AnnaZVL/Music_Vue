@@ -14,7 +14,7 @@ const { meta, handleSubmit, defineField } = useForm()
 const [promoCode] = defineField('promoCode')
 
 const onSubmit = handleSubmit((values) => {
-  console.log('Promo')
+  console.log('Promo', stateStore.typeDownload)
   if (meta.value.valid) {
     if (stateStore.typeDownload === 'track') {
       trackStore.addPromo(values.promoCode)

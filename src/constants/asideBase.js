@@ -11,7 +11,7 @@ export const topMenu = [
     id: 0,
     text: 'Главная',
     icon: IconHome,
-    path: '/',
+    path: {name: 'personal'},
     disabled: false
   },
   {

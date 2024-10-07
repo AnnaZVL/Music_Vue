@@ -1,7 +1,7 @@
 <script setup>
-import InputAudio from '@/components/Layout/DownloadsForm/InputAudio.vue'
-import InputFile from '@/components/Layout/DownloadsForm/InputFile.vue'
-import InputText from '@/components/Layout/DownloadsForm/InputText.vue'
+import InputAudio from '@/components/Layout/DownloadsForm/components/InputAudio.vue'
+import InputFile from '@/components/Layout/DownloadsForm/components/InputFile.vue'
+import InputText from '@/components/Layout/DownloadsForm/components/InputText.vue'
 
 import { useForm } from 'vee-validate'
 import * as yup from 'yup'

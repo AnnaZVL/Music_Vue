@@ -68,7 +68,8 @@ body {
 }
 
 .choices {
-  min-width: 60%;
+  min-width: 60%;  
+ overflow: visible;
 }
 
 .choices.is-focused.is-open > .choices__inner {
@@ -78,7 +79,7 @@ body {
 .choices__inner {
   padding: 10px;
   background-color: transparent;
-  /* width: 60%; */
+  width: 100%;
   color: var(--color-white);
   outline: none;
   border: 1px solid var(--color-blue);
@@ -90,7 +91,6 @@ body {
   padding: 10px;
   border: 1px solid transparent;
   background-color: var(--color-bg);
-  /* max-width: 60%; */
   width: 100%;
   max-height: 150px;
   overflow: auto;

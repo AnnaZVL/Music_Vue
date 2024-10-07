@@ -2,9 +2,9 @@
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
 import SelectBase from '@/components/Layout/UI/Select/SelectBase.vue'
 import TultipBase from '@/components/Layout/UI/Tultip/TultipBase.vue'
-import InputFile from '@/components/Layout/DownloadsForm/InputFile.vue'
-import InputText from '@/components/Layout/DownloadsForm/InputText.vue'
-import InputDate from '@/components/Layout/DownloadsForm/InputDate.vue'
+import InputFile from '@/components/Layout/DownloadsForm/components/InputFile.vue'
+import InputText from '@/components/Layout/DownloadsForm/components/InputText.vue'
+import InputDate from '@/components/Layout/DownloadsForm/components/InputDate.vue'
 
 import { genre } from '@/constants/downloads'
 import { useForm } from 'vee-validate'
@@ -34,7 +34,7 @@ const onSubmit = handleSubmit((values) => {
   const newTrack = { ...values, ...formData.value }
 
   if (meta.value.valid) {
-    console.log('step2')
+    console.log('step2 track')
     trackStore.addTrack(newTrack)
     stateStore.changeStep(3)    
   }

@@ -1,7 +1,7 @@
 <script setup>
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue';
-import InputText from '@/components/Layout/DownloadsForm/InputText.vue';
-import InputTextarea from '@/components/Layout/DownloadsForm/InputTextarea.vue';
+import InputText from '@/components/Layout/DownloadsForm/components/InputText.vue';
+import InputTextarea from '@/components/Layout/DownloadsForm/components/InputTextarea.vue';
 
 import { useForm } from 'vee-validate'
 import * as yup from 'yup'
@@ -23,7 +23,7 @@ const { meta, handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {  
-  console.log('step4 track');
+  console.log('step 4 track');
   if (meta.value.valid) {  
     trackStore.addTrack({...values}) 
     stateStore.changeStep(5) 

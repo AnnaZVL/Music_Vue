@@ -11,9 +11,9 @@ export const useStateStore = defineStore('stateStore', () => {
     }
 
     function changeStep(step) {
-        currentStep.value = step
-        console.log('st store', currentStep.value);
+        currentStep.value = step;        
     }
+    
     return {
         typeDownload,
         currentStep,

@@ -3,6 +3,7 @@ import FormPromo from '@/components/Layout/DownloadsForm/FormPromo.vue'
 import NeoButtons from '@/components/Layout/UI/Buttons/NeoButtons.vue'
 import BaseModal from '@/components/Layout/UI/Modals/BaseModal.vue'
 import FormAgreement from '../DownloadsForm/FormAgreement/FormAgreement.vue'
+import AdditionallyList from './components/AdditionallyList.vue'
 import defaultFoto from '@/assets/img/personal_page/no-photo.jpg'
 
 import { useTrackStore } from '@/stores/trackStore';
@@ -25,9 +26,9 @@ const { meta, handleSubmit } = useForm({
   })
 })
 
-const onSubmit = handleSubmit((values) => {
+const onSubmit = handleSubmit(() => {
   if (meta.value.valid) {
-    console.log('OK', values)
+    console.log('Track added', trackStore.newTrack)
     stateStore.changeStep(1) 
   }
 })
@@ -64,9 +65,11 @@ const successForm = (success) => {
         </button>
         <NeoButtons class="form-step__btn" text="Оплатить" type="submit" :disabled="isDisabled"></NeoButtons>
       </div>
-      <p class="rezalt-message" v-if="isVisible">Что-то пошло не так. Попробуйте позже.</p>
-    
+      <p class="rezalt-message" v-if="isVisible">Что-то пошло не так. Попробуйте позже.</p>    
   </form>
+
+  <AdditionallyList/>
+  
   <Teleport to="#wrapper">
     <BaseModal v-if="showModal" @close-modal="showModal = false">
       <FormAgreement @success-form="successForm"/>
@@ -76,6 +79,7 @@ const successForm = (success) => {
 
 <style scoped>
 .payment__top {
+  padding: 20px;
   display: flex;
   gap: 30px;
   border: 1px solid rgba(83, 95, 246, 0.4);
@@ -83,7 +87,7 @@ const successForm = (success) => {
 }
 
 .payment__body {
-  padding: 20px;
+  
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -115,7 +119,6 @@ const successForm = (success) => {
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  width: 100%;
   border: 1px solid rgba(83, 95, 246, 0.4);
   border-radius: 10px;
 }

@@ -3,6 +3,7 @@ import StepSection from './StepSection.vue'
 import QuestionsBase from './QuestionsBase.vue'
 import IconSingle from '@/components/Layout/UI/SVG/IconSingle.vue'
 import IconAlbum from '@/components/Layout/UI/SVG/IconAlbum.vue'
+
 import { useStateStore } from '@/stores/stateStore'
 
 const stateStore = useStateStore()

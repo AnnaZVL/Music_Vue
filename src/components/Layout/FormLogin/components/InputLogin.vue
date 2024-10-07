@@ -65,9 +65,9 @@ input[type='password']::-ms-clear {
 }
 
 .input {
-  padding: 13px 20px;
-  height: 48px;
+  padding: 13px 20px;   
   width: 100%;
+  height: 38px;
   font-weight: 500;
   border-radius: 4px;
   font-size: 14px;
@@ -113,8 +113,8 @@ input[type='password']::-ms-clear {
 .icon {
   padding: 7px;
   position: absolute;
-  right: 13px;
-  bottom: 2px;
+  right: -30px;
+  bottom: 15px;
   width: 20px;
   box-sizing: content-box;
   cursor: pointer;

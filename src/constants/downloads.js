@@ -55,3 +55,18 @@ export const genre = [
     { id: 1, name: 'Хип-Хоп', value: 'hop' },
     { id: 1, name: 'Фольк', value: 'folk' },
 ]
+
+export const additionallyLiast = [
+    {
+        id: 0,
+        path: new URL('@/assets/img/personal_page/Eosella.jpg', import.meta.url).href,
+        price: 1000,
+        descr: 'Придумаем отличное описание Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, voluptatem.'
+    },
+    {
+        id: 1,
+        path: new URL('@/assets/img/personal_page/Eosella.jpg', import.meta.url).href,
+        price: 2000,
+        descr: 'Придумаем еще что-нибудь'
+    }
+]

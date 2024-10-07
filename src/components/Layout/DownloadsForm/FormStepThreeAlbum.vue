@@ -1,6 +1,6 @@
 <script setup>
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue';
-import OneTrack from '@/components/Layout/DownloadsForm/OneTrack.vue'
+import OneTrack from '@/components/Layout/DownloadsForm/components/OneTrack.vue'
 
 import { useAlbumStore } from '@/stores/albumStore'
 import { useStateStore } from '@/stores/stateStore'
@@ -16,7 +16,7 @@ const stateStore = useStateStore();
 const { meta, handleSubmit } = useForm({})
 
 const onSubmit = handleSubmit(() => {   
-  console.log('step 3');
+  console.log('step 3 album');
   if (meta.value.valid) {   
     albumStore.addAlbum({ tracks: tracks.value })
     stateStore.changeStep(4)  

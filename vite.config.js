@@ -18,5 +18,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    minify: false,  // Отключить минимизацию JS и CSS
+    cssCodeSplit: true // Вынести CSS в отдельные файлы
   }
 })

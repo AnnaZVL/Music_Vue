@@ -22,8 +22,7 @@ defineProps({
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;   
-    width: 100%;
+    gap: 20px;     
     border-radius: 20px;
     border: 1px solid rgba(83, 95, 246, 0.4);
     position: relative;
@@ -69,6 +68,10 @@ defineProps({
 }
 
 .upload-singl-text {
+    font-size: 24px;
+}
+
+.upload-singl-subtext {
     font-size: 24px;
 }
 
@@ -156,7 +159,6 @@ defineProps({
     color: var(--color-white);
     outline: none;
     border: 1px solid var(--color-blue);
-    width: 100%;
     font-size: 24px;
 }
 
@@ -199,7 +201,6 @@ input[type='date']::after {
     color: var(--color-white);
     outline: none;
     border: 1px solid var(--color-blue);
-    width: 100%;
     font-size: 24px;
 }
 

@@ -3,6 +3,7 @@ import NewEvents from './components/NewEvents.vue'
 import OldEvents from './components/OldEvents.vue'
 
 import { eventNewList, eventOldList } from '@/constants/eventsPersonal'
+
 </script>
 
 <template>

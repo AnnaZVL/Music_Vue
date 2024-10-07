@@ -9,9 +9,9 @@ const handleItemClick = (index) => {
 </script>
 
 <template>
-  <ul class="aside-personal__menu aside-menu" :class="{ visible: showMenu }">
+  <ul class="aside-menu" :class="{ visible: showMenu }">
     <li
-      class="personal__item aside-menu__item"
+      class="aside-menu__item"
       :class="{ 'active-route': activeIndex === item.id, disabled: item.disabled }"
       @click="handleItemClick(item.id)"
       v-for="item in list"
@@ -72,15 +72,7 @@ const handleItemClick = (index) => {
   z-index: 0;
   width: 100%;
   height: 100%;
-  background: rgb(242, 144, 105);
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(rgba(255, 255, 255, 0)),
-    color-stop(150%, rgba(242, 144, 105, 0.5))
-  );
-  background: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(242, 144, 105, 0.5) 150%);
+  background: var(--color-second);
   background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(242, 144, 105, 0.5) 150%);
   opacity: 0;
   visibility: hidden;
@@ -116,10 +108,8 @@ const handleItemClick = (index) => {
 
 .aside-menu__icon {
   width: 40px;
-  height: 40px;
-  -webkit-transition: fill 0.3s ease-in-out;
-  -o-transition: fill 0.3s ease-in-out;
-  transition: fill 0.3s ease-in-out;
+  height: 40px; 
   fill: var(--color-white);
+  transition: fill 0.3s ease-in-out;
 }
 </style>

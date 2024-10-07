@@ -34,9 +34,8 @@ const { value, errorMessage } = useField(props.name)
 }
 
 .form__label input {
-  padding: 13px 20px;
-  height: 48px;
-  width: 100%;
+  padding: 13px 10px 13px 20px;  
+  width: 90%;
   font-weight: 500;
   border-radius: 4px;
   font-size: 14px;
@@ -46,7 +45,6 @@ const { value, errorMessage } = useField(props.name)
   color: var(--color-gray);
   background-color: var(--color-bg);
   border: 1px solid var(--color-white);
-  -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
   box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
 }

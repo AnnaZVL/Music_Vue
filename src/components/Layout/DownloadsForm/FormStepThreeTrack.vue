@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
-import InputAudio from '@/components/Layout/DownloadsForm/InputAudio.vue'
+import InputAudio from '@/components/Layout/DownloadsForm/components/InputAudio.vue'
 import defaultFoto from '@/assets/img/personal_page/no-photo.jpg'
 
 import { useTrackStore } from '@/stores/trackStore'
@@ -18,7 +18,7 @@ const trackStore = useTrackStore()
 const stateStore = useStateStore()
 
 const onSubmit = () => {
-  console.log('step3')
+  console.log('step3 track')
   trackStore.addTrack({ audio: formData.value.audio })
   stateStore.changeStep(4) 
 }
@@ -75,7 +75,6 @@ const updateFile = (file) => {
   flex-shrink: 1;
   border-radius: 20px;
   border: 1px solid rgba(83, 95, 246, 0.4);
-  width: 100%;
 }
 
 .added-singl__img {
@@ -88,6 +87,7 @@ const updateFile = (file) => {
 .added-singl__img img {
   aspect-ratio: 1 / 1;
 }
+
 .added-singl__content {
   display: grid;
   gap: 20px;

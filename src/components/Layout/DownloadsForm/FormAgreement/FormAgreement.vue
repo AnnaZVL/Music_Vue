@@ -63,7 +63,7 @@ const onSubmit = handleSubmit((values) => {
       bik: values.bik
     }
   }
-  console.log('agreement')
+  console.log('agreement', stateStore.typeDownload)
   if (meta.value.valid) {
     if (stateStore.typeDownload === 'track') {
         trackStore.addTrack({ agreement: addAgreementData })
@@ -79,6 +79,7 @@ const onSubmit = handleSubmit((values) => {
 <template>
   <form class="form-agreement" @submit.prevent="onSubmit">
     <p class="title">Заполните реквизиты договора</p>
+    <div class="form-agreement__body">
     <div class="box">
       <InputTextAgr
         name="fio"
@@ -128,7 +129,7 @@ const onSubmit = handleSubmit((values) => {
       />
       <InputTextAgr name="bik" title="БИК банка" type="text" placeholder="БИК" />
     </div>
-
+  </div>
     <button class="btn form__btn" type="submit">Продолжить</button>
   </form>
 </template>
@@ -137,6 +138,16 @@ const onSubmit = handleSubmit((values) => {
 .form-agreement {
   margin-bottom: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+  
+}
+
+.form-agreement__body {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -182,11 +193,10 @@ const onSubmit = handleSubmit((values) => {
   padding: 5px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;
+  gap: 10px;  
   height: 100%;
   background-color: transparent;
-  border-radius: 6px;
+  border-radius: 6px;  
 }
 
 .message {

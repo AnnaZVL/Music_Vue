@@ -6,11 +6,7 @@ import { useField } from 'vee-validate'
 const props = defineProps(['title', 'name'])
 
 const { value } = useField(props.name)
-// const emits = defineEmits(['updateInput'])
 
-// const onChangeInput = () => {
-//     emits('updateInput')@change="onChangeInput"
-// }
 </script>
 
 <template>

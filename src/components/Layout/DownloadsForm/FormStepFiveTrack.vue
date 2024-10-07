@@ -1,6 +1,6 @@
 <script setup>
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
-import InputText from './InputText.vue'
+import InputText from './components/InputText.vue'
 
 import { useForm } from 'vee-validate'
 import * as yup from 'yup'
