@@ -86,8 +86,7 @@ const successForm = (success) => {
   border-radius: 20px;
 }
 
-.payment__body {
-  
+.payment__body {  
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -151,5 +150,11 @@ const successForm = (success) => {
 .payment__btn:hover {
   color: var(--color-second);
   border-color: var(--color-second);
+}
+
+@media (max-width: 768px) {
+  .payment__top, .payment__result {
+    flex-direction: column;
+  }
 }
 </style>

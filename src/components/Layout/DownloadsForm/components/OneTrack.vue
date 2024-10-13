@@ -82,7 +82,6 @@ const continueAdded = handleSubmit((values) => {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
   border-radius: 20px;
   border: 1px solid rgba(83, 95, 246, 0.4);
   position: relative;

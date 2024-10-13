@@ -2,7 +2,7 @@
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { register } from 'swiper/element/bundle'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, onBeforeUnmount } from 'vue'
 
 import SectionPersonal from '@/components/Layout/Content/SectionPersonal.vue'
 import CardEvent from './CardEvent.vue'
@@ -11,9 +11,18 @@ import IconArrow from '@/components/Layout/UI/SVG/IconArrow.vue'
 
 const isNextDisabled = ref(false)
 const isPrevDisabled = ref(true)
+const slidesPerView = ref(2);
 
 register()
 defineProps(['events'])
+
+  const updateSlidesPerView = () => {
+  if (window.innerWidth < 768 ) {
+    slidesPerView.value = 1
+  }  else {
+    slidesPerView.value = 2
+  }    
+};
 
 onMounted(() => {
   const swiperEl = document.querySelector('swiper-container');
@@ -27,6 +36,8 @@ onMounted(() => {
       isNextDisabled.value = swiperEl.swiper.isEnd;
     };
 
+    updateSlidesPerView(); // Устанавливаем изначальное количество слайдов
+  window.addEventListener('resize', updateSlidesPerView);
      // Первоначальная проверка
      updateButtons();
 
@@ -45,6 +56,11 @@ onMounted(() => {
   const defaultNavButtons = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
   defaultNavButtons.forEach(btn => btn.remove());  // Удаляем встроенные кнопки
   
+  
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateSlidesPerView);
 });
 </script>
 
@@ -55,7 +71,7 @@ onMounted(() => {
       <swiper-container
         class="oldEvent__cards swiper"
         navigation="false"
-        :slides-per-view="2"
+        :slides-per-view="slidesPerView"
         :slides-per-group="1"
         :space-between="20"
       >
@@ -107,8 +123,8 @@ onMounted(() => {
   padding: 5px;
   position: relative;
   z-index: 10;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,5 +159,45 @@ onMounted(() => {
 .swiper > .swiper-button-next,
 .swiper > .swiper-button-prev {
   display: none !important;
+}
+
+@media (max-width: 1200px) {
+  .oldEvent__cards {    
+        width: 700px;
+    }
+
+    .oldEvent .personal-section__title {
+      max-width: 80%;
+    }
+}
+
+@media (max-width: 1024px) {
+  .oldEvent__cards {    
+        width: 550px;
+    }
+}
+
+@media (max-width: 992px) {
+  .oldEvent__cards {    
+        width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+  .oldEvent__cards {    
+        width: 500px;
+        height: 700px;
+    }
+}
+
+@media (max-width: 562px) {
+  .oldEvent__cards {    
+        width: 280px;
+    }
+
+    .swiper__actions {
+        display: none;
+    }
+
 }
 </style>

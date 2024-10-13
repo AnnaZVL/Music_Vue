@@ -11,11 +11,11 @@ import { useUserStore } from '@/stores/userStore'
 
 const showModalLogin = ref(false)
 
-const userStore = useUserStore();
+const userStore = useUserStore()
 
 const openModal = () => {
   if (userStore.isAuthorized) {
-    userStore.logout(); // Выход из системы
+    userStore.logout() // Выход из системы
   } else {
     showModalLogin.value = !showModalLogin.value
   }
@@ -34,16 +34,20 @@ const closeModal = () => {
       </router-link>
 
       <div class="header__buttons">
-        <UserBox v-if="userStore.isAuthorized"/>
+        <UserBox v-if="userStore.isAuthorized" />
         <HeaderDropdown />
 
-        <NeoButtons id="sign" :text="userStore.isAuthorized ? 'Выйти' : 'Войти'" @click="openModal" />
+        <NeoButtons
+          id="sign"
+          :text="userStore.isAuthorized ? 'Выйти' : 'Войти'"
+          @click="openModal"
+        />
       </div>
-        <Teleport to="#wrapper">
-          <BaseModal v-if="showModalLogin" @close-modal="closeModal">
-            <LoginModal></LoginModal>          
-          </BaseModal>
-        </Teleport>      
+      <Teleport to="#wrapper">
+        <BaseModal v-if="showModalLogin" @close-modal="closeModal">
+          <LoginModal></LoginModal>
+        </BaseModal>
+      </Teleport>
     </div>
   </header>
   <transition> </transition>
@@ -51,24 +55,19 @@ const closeModal = () => {
 
 <style scoped>
 .header {
+  margin: 0 auto;
   padding: 20px 0 0;
   width: 100%;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .header__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   gap: 10px;
-  width: 100%;
 }
 
 .header__logo {
@@ -79,8 +78,6 @@ const closeModal = () => {
 
 .logo__icon {
   fill: var(--color-blue);
-  -webkit-transition: fill 0.3s ease-in-out;
-  -o-transition: fill 0.3s ease-in-out;
   transition: fill 0.3s ease-in-out;
 }
 
@@ -98,5 +95,11 @@ const closeModal = () => {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .header__container {
+    padding: 0 15px;
+  }
 }
 </style>

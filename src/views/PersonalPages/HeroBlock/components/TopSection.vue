@@ -2,6 +2,7 @@
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { register } from 'swiper/element/bundle'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 import SectionPersonal from '@/components/Layout/Content/SectionPersonal.vue'
 
@@ -10,8 +11,33 @@ import { swiperList } from '@/constants/heroBase'
 register()
 
 const getImagePath = (imagePath) => {
-  return new URL(imagePath, import.meta.url).href;
+  return new URL(imagePath, import.meta.url).href
 }
+
+// Переменная для отслеживания количества слайдов
+const slidesPerView = ref(2);
+
+// Функция для обновления количества слайдов при изменении ширины экрана
+const updateSlidesPerView = () => {
+  if (window.innerWidth < 562) {
+    slidesPerView.value = 1
+  } else if (window.innerWidth > 1024) {
+    slidesPerView.value = 3
+  } else {
+    slidesPerView.value = 2
+  }  
+};
+
+// Когда компонент монтируется, устанавливаем обработчик изменения размера окна
+onMounted(() => {
+  updateSlidesPerView(); // Устанавливаем изначальное количество слайдов
+  window.addEventListener('resize', updateSlidesPerView); // Следим за изменением размера
+});
+
+// Убираем обработчик при удалении компонента
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateSlidesPerView);
+});
 </script>
 
 <template>
@@ -19,7 +45,7 @@ const getImagePath = (imagePath) => {
     <template #body>
       <swiper-container
         class="top__list swiper"
-        :slides-per-view="2"
+        :slides-per-view="slidesPerView"
         :slides-per-group="1"
         :space-between="20"
         pagination="true"
@@ -96,4 +122,41 @@ const getImagePath = (imagePath) => {
 .swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
   transform: scale(1.5);
 }
+
+@media (max-width: 1200px) {
+  .top__list {
+    width: 600px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .top__list {
+    width: 550px;
+  }
+}
+
+@media (max-width: 992px) {
+.top__list {    
+        width: 700px;
+    }
+  }
+  @media (max-width: 768px) {
+  .top__list {    
+        width: 520px;
+    } 
+
+    .top__card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 562px) {
+    .top__list {    
+        width: 280px;
+    } 
+
+    .swiper__buttons {
+        display: none;
+    }
+  }
 </style>

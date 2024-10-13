@@ -1,7 +1,7 @@
 <script setup>
 import SectionTitle from '@/components/Layout/Content/TitleSectionPersonal.vue'
 
-defineProps(['title'])
+defineProps({ title: String})
 </script>
 
 <template>
@@ -17,5 +17,11 @@ defineProps(['title'])
   flex-shrink: 1;
   border-radius: 20px;
   border: 1px solid rgba(83, 95, 246, 0.4);
+}
+
+@media (max-width: 562px) {
+  .personal-section {
+    padding: 10px;
+  }
 }
 </style>

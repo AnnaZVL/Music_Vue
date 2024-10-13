@@ -13,6 +13,20 @@ export const eventNewList = [
     path: new URL('@/assets/img/personal_page/albums/Miller.jpg', import.meta.url).href,
     descr: 'Lorem ipsum dolor sit amet consectetur.',
     prize: 1000
+  },
+  {
+    id: 3,
+    name: 'название события',
+    path: new URL('@/assets/img/personal_page/albums/Miller.jpg', import.meta.url).href,
+    descr: 'Lorem ipsum dolor sit amet consectetur.',
+    prize: 1000
+  },
+  {
+    id: 4,
+    name: 'название события',
+    path: new URL('@/assets/img/personal_page/albums/Miller.jpg', import.meta.url).href,
+    descr: 'Lorem ipsum dolor sit amet consectetur.',
+    prize: 1000
   }
 ]
 

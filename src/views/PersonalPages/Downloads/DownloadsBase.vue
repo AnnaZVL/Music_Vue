@@ -58,4 +58,10 @@ const changeStep = (newStep) => {
   padding: 15px 0;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .download {
+    padding: 0;
+  }
+}
 </style>

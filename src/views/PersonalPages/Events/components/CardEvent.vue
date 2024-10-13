@@ -87,10 +87,12 @@ const getImagePath = (imagePath) => {
 .event-card__link {
   display: block;
   width: 100%;
+  max-height: 400px;
 }
 
 .event-card__img {
   border-radius: 20px 20px 0 0;
+  height: 100%;
 }
 
 .event-card__body {
@@ -171,4 +173,16 @@ const getImagePath = (imagePath) => {
   justify-content: space-between;
   gap: 10px;
 }
+
+@media (max-width: 768px) {
+  .event-card__link {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 562px) {
+.event-card__price {
+        font-size: 16px;
+    }
+  }
 </style>

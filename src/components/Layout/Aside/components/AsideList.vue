@@ -1,19 +1,16 @@
 <script setup>
-defineProps({ list: Array, activeIndex: Number, showMenu: Boolean })
+import { useRoute } from 'vue-router'
 
-const emit = defineEmits(['activeItem'])
+defineProps({ list: Array })
 
-const handleItemClick = (index) => {
-  emit('activeItem', index)
-}
+const route = useRoute()
 </script>
 
 <template>
-  <ul class="aside-menu" :class="{ visible: showMenu }">
+  <ul class="aside-menu" >
     <li
       class="aside-menu__item"
-      :class="{ 'active-route': activeIndex === item.id, disabled: item.disabled }"
-      @click="handleItemClick(item.id)"
+      :class="{ 'active-route': route.name === item.path.name, disabled: item.disabled }"
       v-for="item in list"
       :key="item.id"
     >
@@ -107,9 +104,49 @@ const handleItemClick = (index) => {
 }
 
 .aside-menu__icon {
-  width: 40px;
-  height: 40px; 
+  width: 30px;
+  height: 30px; 
   fill: var(--color-white);
   transition: fill 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+  .aside-menu {
+        padding-bottom: 10px;
+        flex-direction: row;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0%);
+        border-bottom: none;
+        gap: 15px;
+    }
+
+    .aside-menu.visible {
+        transform: translateX(0);
+    } 
+
+    .aside-menu__item {
+        width: max-content;
+    }
+
+    .aside-menu__icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+  .aside-menu__link {
+        flex-direction: column;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 562px) {
+  .aside-menu__link span {
+        display: none;
+    }
+
+    
 }
 </style>

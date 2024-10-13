@@ -15,7 +15,7 @@ const statusText = (status) => {
 }
 
 const getImagePath = (imagePath) => {
-  return new URL(imagePath, import.meta.url).href;
+  return new URL(imagePath, import.meta.url).href
 }
 </script>
 
@@ -44,21 +44,23 @@ const getImagePath = (imagePath) => {
       </div>
       <div class="catalog__item--actions">
         <button class="catalog__item--pay">Оплатить</button>
-        <div class="catalog__item--buttons" v-if="item.link">
-          <button class="btn catalog__item--btn" title="Ссылка">
-            <IconLink class="catalog__item--icon" />
-          </button>
-          <button class="btn catalog__item--btn" title="Статистика">
-            <IconStatic class="catalog__item--icon" />
-          </button>
-        </div>
-        <div class="catalog__item--buttons">
-          <button class="btn catalog__item--btn" title="Редактировать">
-            <IconChange class="catalog__item--icon" />
-          </button>
-          <button class="btn catalog__item--btn" title="Удалить">
-            <IconDelete class="catalog__item--icon" />
-          </button>
+        <div class="inner">
+          <div class="catalog__item--buttons" v-if="item.link">
+            <button class="btn catalog__item--btn" title="Ссылка">
+              <IconLink class="catalog__item--icon" />
+            </button>
+            <button class="btn catalog__item--btn" title="Статистика">
+              <IconStatic class="catalog__item--icon" />
+            </button>
+          </div>
+          <div class="catalog__item--buttons">
+            <button class="btn catalog__item--btn" title="Редактировать">
+              <IconChange class="catalog__item--icon" />
+            </button>
+            <button class="btn catalog__item--btn" title="Удалить">
+              <IconDelete class="catalog__item--icon" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -81,7 +83,6 @@ const getImagePath = (imagePath) => {
   gap: 10px;
   border-radius: 10px;
   border: 1px solid var(--color-blue);
-  width: 100%;
 }
 
 .catalog__item--info {
@@ -154,6 +155,7 @@ const getImagePath = (imagePath) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -167,7 +169,15 @@ const getImagePath = (imagePath) => {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  flex-grow: 1;
+  flex-grow: 1;  
+}
+
+.catalog__item--actions .inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .catalog__item--pay {
@@ -212,5 +222,43 @@ const getImagePath = (imagePath) => {
 
 .catalog__item--btn:hover {
   border-color: var(--color-white);
+}
+
+@media (max-width: 1200px) {
+  .catalog__item--actions,
+  .catalog__item--box {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+   .catalog__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .catalog__item--box {
+    flex-direction: row;
+  }
+
+  .catalog__item--actions {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .catalog__item--info {
+    flex-basis: 0%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 562px) {
+.catalog__item--info {
+  flex-direction: column;
+}
+  
+
+  
 }
 </style>

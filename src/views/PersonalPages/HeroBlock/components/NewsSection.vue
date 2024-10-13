@@ -67,4 +67,19 @@ import SectionPersonal from '@/components/Layout/Content/SectionPersonal.vue'
   gap: 15px;
   width: 100%;
 }
+
+@media (max-width: 562px) {
+  .news {
+    gap: 15px;
+  }
+
+  .new__top {
+    grid-template-columns: 1fr;    
+  }
+
+  .news__img {
+  height: 250px;
+}
+
+}
 </style>

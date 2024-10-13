@@ -11,36 +11,36 @@ const toggleAside = () => {
 
 <template>
   <main class="main-personal">
-    <div class="main-personal__container container">
-      <button
-        class="btn aside-personal__close"
-        :class="{ show: showAside }"
-        title="Свернуть меню"
-        @click="toggleAside"
-      ></button>
-      <AsidePersonal :showAside="showAside"></AsidePersonal>
-      <article class="personal-content">
-        <router-view></router-view>
-      </article>
+    <div class="container">
+      <div class="main-personal__container">
+        <button
+          class="btn aside-personal__close"
+          :class="{ show: showAside }"
+          title="Свернуть меню"
+          @click="toggleAside"
+        ></button>
+        <AsidePersonal :showAside="showAside"></AsidePersonal>
+        <article class="personal-content">
+          <router-view></router-view>
+        </article>
+      </div>
     </div>
   </main>
 </template>
 
 <style>
 .main-personal {
-  display: flex;
-  flex: 1;
   width: 100%;
   height: 100%;
 }
 
 .main-personal__container {
   margin-top: 30px;
-  width: 100%;
-  height: 100%;
-  position: relative;
   display: flex;
   gap: 20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .aside-personal__close {
@@ -62,11 +62,10 @@ const toggleAside = () => {
 
 .personal-content {
   margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
   padding: 20px;
-  flex-shrink: 1;
-  gap: 30px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -79,5 +78,35 @@ const toggleAside = () => {
 
 .personal-section__subtitle::first-letter {
   text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .main-personal__container {
+    margin-top: 0;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .personal-content {
+    width: auto;
+  }
+  
+  .aside-personal__close {
+    display: none;
+  }
+}
+
+@media (max-width: 562px) {
+  .main-personal__container {
+    padding: 0;
+  }
+
+  .personal-content {
+    padding: 10px 5px;
+  }
+
+  .personal-section__subtitle {
+    font-size: 28px;
+  }
 }
 </style>

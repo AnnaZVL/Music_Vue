@@ -109,3 +109,38 @@ body {
 .choices__item.choices__item--choice.choices__item--selectable.is-highlighted::after {
   display: none;
 }
+
+@media (max-width: 1024px) {
+  .container {
+      max-width: 994px;
+  }  
+}
+
+@media (max-width: 992px) {
+  .container {
+      max-width: 962px;
+  }  
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 0.8rem;
+}
+
+  .container {
+      max-width: 732px;
+  }  
+}
+
+@media (max-width: 562px) {
+  .container {
+      max-width: 532px;
+  }  
+}
+
+@media (max-width: 380px) {
+  .container {
+      padding: 0 5px;
+      max-width: 100%;
+  }
+}

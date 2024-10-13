@@ -88,4 +88,10 @@ const changeStep = (stepId) => {
   background-color: var(--color-second);
   transform: translateX(0);
 }
+
+@media (max-width: 562px) {
+  .steps__item--text {
+    display: none;
+  }
+}
 </style>

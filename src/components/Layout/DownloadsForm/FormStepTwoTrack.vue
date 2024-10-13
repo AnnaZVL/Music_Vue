@@ -1,7 +1,6 @@
 <script setup>
 import FormDownloads from '@/components/Layout/DownloadsForm/FormDownloads.vue'
 import SelectBase from '@/components/Layout/UI/Select/SelectBase.vue'
-import TultipBase from '@/components/Layout/UI/Tultip/TultipBase.vue'
 import InputFile from '@/components/Layout/DownloadsForm/components/InputFile.vue'
 import InputText from '@/components/Layout/DownloadsForm/components/InputText.vue'
 import InputDate from '@/components/Layout/DownloadsForm/components/InputDate.vue'
@@ -49,8 +48,7 @@ const updateFile = (file) => {
   <FormDownloads title="Выберите жанр" @submit.prevent="onSubmit">
     <SelectBase v-model="formData.genre" :optionsList="genre" id="genre"> </SelectBase>
     <div class="form-step__box">
-      <h6 class="form-step__title">Обложка</h6>
-      <TultipBase></TultipBase>
+      <h6 class="form-step__title">Обложка</h6>      
     </div>
     <InputFile @updateFile="updateFile"></InputFile>
     <div class="form-step__wrapper">
@@ -66,9 +64,5 @@ const updateFile = (file) => {
 .form-step__box {
   position: relative;
   min-width: 30%;
-}
-
-.form-step__box > .tultip {
-  right: 60%;
 }
 </style>

@@ -52,4 +52,17 @@ defineProps(['winner'])
   font-size: 22px;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .winner__wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 562px) {
+  .winner-card__img {
+    width: 60px;
+    height: 60px;
+  }
+}
 </style>

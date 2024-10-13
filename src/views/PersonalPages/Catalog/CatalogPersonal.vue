@@ -1,28 +1,33 @@
 <script setup>
 import ListCatalog from './components/ListCatalog.vue'
 import SelectBase from '@/components/Layout/UI/Select/SelectBase.vue'
+import SectionPersonal from '@/components/Layout/Content/SectionPersonal.vue'
 
 import { filterOptions, listCatalog } from '@/constants/catalogPage'
 </script>
 
 <template>
-  <section class="catalog">
-    <div class="catalog__header">
-      <h5 class="catalog__title">Мой каталог</h5>
-      <span class="catalog__header--text">Статистика</span>
+  <SectionPersonal class="catalog" title="Мой каталог">
+    <template #body>
+      <div class="catalog__header">
+        <span class="catalog__header--text">Статистика</span>
 
-      <SelectBase className="catalog__filter" :optionsList="filterOptions" id="filter"></SelectBase>     
-    </div>
-    <ListCatalog :list="listCatalog"></ListCatalog>
-  </section>
+        <SelectBase
+          className="catalog__filter"
+          :optionsList="filterOptions"
+          id="filter"
+        ></SelectBase>
+      </div>
+      <ListCatalog :list="listCatalog"></ListCatalog>
+    </template>
+  </SectionPersonal>
 </template>
 
-<style>
+<style scoped>
 .catalog {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 100%;
 }
 
 .catalog__header {

@@ -3,7 +3,7 @@ defineProps({ text: String })
 </script>
 
 <template>
-  <button class="btn header__link link">
+  <button class="btn link">
     <span class="link__line link__line--top"></span>
     <span class="link__line link__line--right"></span>
     <span class="link__line link__line--bottom"></span>
@@ -161,5 +161,11 @@ defineProps({ text: String })
   -webkit-transition: 1s;
   -o-transition: 1s;
   transition: 1s;
+}
+
+@media (max-width: 562px) {
+  .link {
+    font-size: 16px;
+  }
 }
 </style>

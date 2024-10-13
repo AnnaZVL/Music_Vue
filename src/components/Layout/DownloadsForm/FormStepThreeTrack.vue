@@ -97,4 +97,10 @@ const updateFile = (file) => {
 .added-singl__name {
   font-size: 24px;
 }
+
+@media (max-width: 562px) {
+  .added-singl__content {
+    flex-basis: auto;
+  }
+}
 </style>
