@@ -1,9 +1,7 @@
 <script setup>
 import { additionallyLiast } from '@/constants/downloads'
 
-const getImagePath = (imagePath) => {
-  return new URL(imagePath, import.meta.url).href;
-}
+import { getImagePath } from '@/helpers/imgPath'
 </script>
 
 <template>

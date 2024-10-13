@@ -8,11 +8,9 @@ import SectionPersonal from '@/components/Layout/Content/SectionPersonal.vue'
 
 import { swiperList } from '@/constants/heroBase'
 
-register()
+import { getImagePath } from '@/helpers/imgPath'
 
-const getImagePath = (imagePath) => {
-  return new URL(imagePath, import.meta.url).href
-}
+register()
 
 // Переменная для отслеживания количества слайдов
 const slidesPerView = ref(2);

@@ -7,6 +7,8 @@ import IconLink from '@/components/Layout/UI/SVG/IconLink.vue'
 import IconPrize from '@/components/Layout/UI/SVG/IconPrize.vue'
 import IconRegister from '@/components/Layout/UI/SVG/IconRegister.vue'
 
+import { getImagePath } from '@/helpers/imgPath'
+
 defineProps({
   event: Object,
   isRegistered: {
@@ -14,10 +16,6 @@ defineProps({
     default: true
   }
 })
-
-const getImagePath = (imagePath) => {
-  return new URL(imagePath, import.meta.url).href;
-}
 </script>
 
 <template>
@@ -176,13 +174,13 @@ const getImagePath = (imagePath) => {
 
 @media (max-width: 768px) {
   .event-card__link {
-        min-height: 300px;
-    }
+    min-height: 300px;
+  }
 }
 
 @media (max-width: 562px) {
-.event-card__price {
-        font-size: 16px;
-    }
+  .event-card__price {
+    font-size: 16px;
   }
+}
 </style>

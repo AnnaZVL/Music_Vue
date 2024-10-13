@@ -4,7 +4,7 @@ import { ref } from 'vue'
 
 export const useUserStore = defineStore('userStore', () => {
   const users = ref([{ id: 0, name: 'first user', login: 'a@a.com', password: 'Qwerty@', img: new URL('@/assets/img/personal_page/albums/Miller.jpg', import.meta.url).href }])
-  const currentUser = ref({ id: null, name: '', login: '', password: '', img: '' })
+  const currentUser = ref({ id: 0, name: 'Djon Smit', login: '', password: '', img: new URL('@/assets/img/personal_page/albums/Miller.jpg', import.meta.url).href })
   const isAuthorized = ref(false)
 
   function addNewUser(user) {
@@ -41,6 +41,7 @@ export const useUserStore = defineStore('userStore', () => {
     return Math.random().toString(6).substr(2, 9)
   }
   return {
+    users,
     currentUser,
     isAuthorized,
     addNewUser,

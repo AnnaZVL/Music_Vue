@@ -1,11 +1,9 @@
 <script setup>
 import { useUserStore } from '@/stores/userStore';
 
-const userStore = useUserStore()
+import { getImagePath } from '@/helpers/imgPath'
 
-const getImagePath = (imagePath) => {
-  return new URL(imagePath, import.meta.url).href;
-}
+const userStore = useUserStore()
 </script>
 
 <template>

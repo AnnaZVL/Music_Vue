@@ -16,21 +16,21 @@ export const topMenu = [
     id: 0,
     text: 'Главная',
     icon: IconHome,
-    path: {name: 'Hero'},
+    path: { name: 'Hero' },
     disabled: false
   },
   {
     id: 1,
     text: 'События',
     icon: IconCalendar,
-    path: {name: 'Events'},
+    path: { name: 'Events' },
     disabled: false
   },
   {
     id: 2,
     text: 'Мой профиль',
     icon: IconUser,
-    path: '',
+    path: { name: 'Profile' },
     disabled: false
   },
   {

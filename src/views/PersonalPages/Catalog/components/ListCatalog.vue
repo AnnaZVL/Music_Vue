@@ -4,6 +4,8 @@ import IconDelete from '@/components/Layout/UI/SVG/IconDelete.vue'
 import IconLink from '@/components/Layout/UI/SVG/IconLink.vue'
 import IconStatic from '@/components/Layout/UI/SVG/IconStatic.vue'
 
+import { getImagePath } from '@/helpers/imgPath'
+
 defineProps(['list'])
 const statusList = {
   pending: 'ожидание',
@@ -12,10 +14,6 @@ const statusList = {
 
 const statusText = (status) => {
   return statusList[status]?.class
-}
-
-const getImagePath = (imagePath) => {
-  return new URL(imagePath, import.meta.url).href
 }
 </script>
 
