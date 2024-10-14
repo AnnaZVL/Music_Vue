@@ -1,6 +1,5 @@
 <script setup>
 import SectionPersonal from '@/components/Layout/Content/SectionPersonal.vue'
-import UserInfo from '@/components/Layout/Header/UserInfo/UserInfo.vue'
 import InfoItem from '@/components/Layout/Content/InfoItem.vue'
 import ProfileMenu from './components/ProfileMenu.vue'
 import ProfileCard from './components/ProfileCard.vue'
@@ -14,7 +13,7 @@ const userStore = useUserStore()
 </script>
 
 <template>
-  <SectionPersonal class="profile">
+  <SectionPersonal class="profile" :isUser="true" title="Мой профиль">
     <template #body>
       <div class="profile__top">
         <div class="profile__img">
@@ -30,8 +29,7 @@ const userStore = useUserStore()
               :text="item.text"
             />
           </ul>
-        </div>
-        <UserInfo />
+        </div>        
       </div>
 
       <ProfileMenu />

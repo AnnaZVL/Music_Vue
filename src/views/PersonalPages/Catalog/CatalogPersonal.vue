@@ -27,10 +27,11 @@ import { filterOptions, listCatalog } from '@/constants/catalogPage'
 .catalog {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 10px;
 }
 
 .catalog__header {
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -39,13 +40,8 @@ import { filterOptions, listCatalog } from '@/constants/catalogPage'
 }
 
 .catalog__header > .choices {
+  
   height: 50px;
-}
-
-.catalog__title {
-  font-size: 28px;
-  flex-shrink: 1;
-  flex-basis: 40%;
 }
 
 .catalog__header--text {

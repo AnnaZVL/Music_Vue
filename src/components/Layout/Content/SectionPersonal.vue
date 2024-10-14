@@ -1,17 +1,24 @@
 <script setup>
 import SectionTitle from '@/components/Layout/Content/TitleSectionPersonal.vue'
 
-defineProps({ title: String})
+defineProps({
+  title: String,
+  isUser: {
+    type: Boolean,
+    default: false
+  }
+})
 </script>
 
 <template>
-  <section class="personal-section">
-    <SectionTitle>{{ title }}</SectionTitle>
+  <section class="personal-section"> 
+    <SectionTitle :isUser="isUser" :title="title"></SectionTitle>
+    
     <slot name="body" />
   </section>
 </template>
 
-<style scoped>
+<style >
 .personal-section {
   padding: 20px;
   flex-shrink: 1;
@@ -22,6 +29,6 @@ defineProps({ title: String})
 @media (max-width: 562px) {
   .personal-section {
     padding: 10px;
-  }
+  }  
 }
 </style>

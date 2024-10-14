@@ -92,7 +92,7 @@ export const marketplaseMenu = [
     id: 32,
     text: 'Обучение',
     icon: IconEducation,
-    path: '', //{name: 'Catalog'},
+    path: { name: 'education' }, 
     disabled: false
   },
   {
