@@ -1,30 +1,32 @@
 <script setup>
-import { profileMenu } from '@/constants/profilePage'
-import { ref } from 'vue'
+import { ref } from 'vue';
 
+defineProps({menu: Array})
+const emits = defineEmits(['toggle-menu'])
 const isActive = ref(0)
 
 const toggleActivItem = (id) => {
-  isActive.value = id;  
+    isActive.value = id
+  emits('toggle-menu', isActive.value)
 }
 </script>
 
 <template>
-  <ul class="profile__menu">
+  <ul class="menu">
     <li
-      class="profile__item"
-      v-for="item in profileMenu"
-      :key="item.id"
-      :class="{ active: isActive === item.id }"
-      @click="toggleActivItem(item.id)"
+      class="item"
+      v-for="(item, index) in menu"
+      :key="index"
+      :class="{ active: isActive === index }"
+      @click="toggleActivItem(index)"
     >
-      {{ item.title }}
+      {{ item.title || item }}
     </li>
   </ul>
 </template>
 
 <style scoped>
-.profile__menu {
+.menu {
   padding: 20px 0;
   display: flex;
   align-items: center;
@@ -34,14 +36,14 @@ const toggleActivItem = (id) => {
   width: 100%;
 }
 
-.profile__item {
+.item {
   padding: 5px;
   position: relative;
   font-size: 18px;
   cursor: pointer;
 }
 
-.profile__item::after {
+.item::after {
   content: '';
   width: 0%;
   height: 1px;
@@ -52,15 +54,15 @@ const toggleActivItem = (id) => {
   transition: width 0.3s ease-in-out;
 }
 
-.profile__item:hover:after {
+.item:hover:after {
   width: 100%;
 }
 
-.profile__item.active {
+.item.active {
   color: var(--color-second);
 }
 
-.profile__item.active:after {
+.item.active:after {
   width: 100%;
 }
 </style>

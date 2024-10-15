@@ -78,7 +78,7 @@ export const marketplaseMenu = [
     id: 30,
     text: 'Финансы',
     icon: IconFinanse,
-    path: '', //{name: 'Catalog'},
+    path: { name: 'finance' },
     disabled: false
   },
   {

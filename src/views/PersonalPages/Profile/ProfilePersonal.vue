@@ -1,15 +1,22 @@
 <script setup>
 import SectionPersonal from '@/components/Layout/Content/SectionPersonal.vue'
 import InfoItem from '@/components/Layout/Content/InfoItem.vue'
-import ProfileMenu from './components/ProfileMenu.vue'
 import ProfileCard from './components/ProfileCard.vue'
+import SectionMenu from '@/components/Layout/Content/SectionMenu.vue'
 
-import { profileInfo, profileCards } from '@/constants/profilePage'
+import { profileInfo, profileCards, profileMenu } from '@/constants/profilePage'
+
 import { getImagePath } from '@/helpers/imgPath'
 
 import { useUserStore } from '@/stores/userStore'
+import { ref } from 'vue'
 
+const isActive = ref(0)
 const userStore = useUserStore()
+
+const changaActive = (id) => {  isActive.value = id
+   
+}
 </script>
 
 <template>
@@ -32,7 +39,7 @@ const userStore = useUserStore()
         </div>        
       </div>
 
-      <ProfileMenu />
+      <SectionMenu :menu="profileMenu" @toggle-menu="changaActive" />
 
       <div class="profile__cards">
         <ProfileCard

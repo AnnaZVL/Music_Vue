@@ -19,7 +19,7 @@ defineProps({
 
 <style scoped>
 .top {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   display: flex;
   gap: 15px;
   align-items: flex-start;

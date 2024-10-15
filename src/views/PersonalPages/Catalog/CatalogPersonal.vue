@@ -12,11 +12,8 @@ import { filterOptions, listCatalog } from '@/constants/catalogPage'
       <div class="catalog__header">
         <span class="catalog__header--text">Статистика</span>
 
-        <SelectBase
-          className="catalog__filter"
-          :optionsList="filterOptions"
-          id="filter"
-        ></SelectBase>
+        <SelectBase className="catalog__filter" :optionsList="filterOptions" id="filter">
+        </SelectBase>
       </div>
       <ListCatalog :list="listCatalog"></ListCatalog>
     </template>
@@ -40,7 +37,6 @@ import { filterOptions, listCatalog } from '@/constants/catalogPage'
 }
 
 .catalog__header > .choices {
-  
   height: 50px;
 }
 

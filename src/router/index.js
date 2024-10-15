@@ -7,6 +7,7 @@ import EventPersonal from '@/views/PersonalPages/Events/EventPersonal.vue'
 import CatalogPersonal from '@/views/PersonalPages/Catalog/CatalogPersonal.vue'
 import ProfilePersonal from '@/views/PersonalPages/Profile/ProfilePersonal.vue'
 import EducationPersonal from '@/views/PersonalPages/Education/EducationPersonal.vue'
+import FinancePersonal from '@/views/PersonalPages/Finance/FinancePersonal.vue'
 import DownloadsBase from '@/views/PersonalPages/Downloads/DownloadsBase.vue'
 
 import HeaderHome from '@/components/Layout/Header/HeaderHome.vue'
@@ -50,6 +51,11 @@ const router = createRouter({
           path: 'education',
           name: 'education',
           component: EducationPersonal,                  
+        },
+        {
+          path: 'finance',
+          name: 'finance',
+          component: FinancePersonal,                  
         },
         {
           path: 'downloads',
