@@ -7,7 +7,7 @@ import { computed } from 'vue';
 const rezalt = computed(() => {
     rezaltList.map(item => {
         if (item.sum < 0) {
-            item.znak = true
+            item.negative = true
         }
     })
     return rezaltList
@@ -31,7 +31,7 @@ const rezalt = computed(() => {
       <div class="table__row" v-for="row in rezalt" :key="row.id" >
         <span class="table__item">{{ row.date }}</span>
         <span class="table__item">{{ row.descr }}</span>
-        <span class="table__item table__item--count" :class="{expenditure: row.znak}">{{ row.sum }}</span>
+        <span class="table__item table__item--count" :class="{expenditure: row.negative }">{{ row.sum }}</span>
         <span class="table__item table__item--count">{{ row.balance }}</span>
       </div>      
     </div>

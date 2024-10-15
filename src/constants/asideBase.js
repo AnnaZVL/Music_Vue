@@ -61,7 +61,7 @@ export const destribMenu = [
     id: 22,
     text: 'Мультиссылка',
     icon: IconLink,
-    path: '',
+    path: { name: 'multilink'},
     disabled: false
   },
   {
