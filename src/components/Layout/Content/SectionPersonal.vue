@@ -21,6 +21,9 @@ defineProps({
 <style >
 .personal-section {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   flex-shrink: 1;
   border-radius: 20px;
   border: 1px solid rgba(83, 95, 246, 0.4);

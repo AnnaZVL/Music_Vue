@@ -11,7 +11,7 @@ const isActive = ref(false)
 defineProps({
   title: String,
   descr: String,
-  img: Object,
+  img: String,
   link: String
 })
 

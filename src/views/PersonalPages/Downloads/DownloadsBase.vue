@@ -7,7 +7,7 @@ import StepFour from './components/StepFour.vue'
 import StepFive from './components/StepFive.vue'
 import StepPayment from './components/StepSix.vue'
 
-import { computed } from 'vue'
+import { computed, onBeforeUnmount } from 'vue'
 import { useStateStore } from '@/stores/stateStore'
 
 const stateStore = useStateStore()
@@ -32,6 +32,9 @@ const changeStep = (newStep) => {
     stateStore.changeStep(newStep);
   }
 }
+onBeforeUnmount(() => {
+  stateStore.changeStep(1)
+})
 </script>
 
 <template>

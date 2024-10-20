@@ -4,32 +4,40 @@ import IconCard from '@/components/Layout/UI/SVG/IconCard.vue'
 import FinanceCard from './FinanceCard.vue'
 
 import { selectOptions, cardsTrans } from '@/constants/financePage'
+import { ref } from 'vue'
+
+const currentType = ref(selectOptions[0])
+defineEmits('update:modelValue', currentType.value)
 </script>
 
 <template>
   <div class="finance__payment">
     <div class="finance__payment--top">
       <p class="finance__payment--text">Способ оплаты</p>
-      <SelectBase className="finance__filter" :optionsList="selectOptions" id="payment" />
+      <SelectBase
+        className="finance__filter"
+        :optionsList="selectOptions"
+        v-model="currentType"
+        id="payment"        
+      />
     </div>
     <div class="finance__payment--card">
       <IconCard />
-      <span>Онлайн касса</span>
+      <span>{{ currentType.name }}</span>
     </div>
   </div>
-  
-    <ul class="finance__list">
-      <FinanceCard
-        v-for="card in cardsTrans"
-        :key="card.id"
-        :title="card.title"
-        :descr="card.descr"
-        :count="card.count"
-        :cash="card.cash"
-        :isBtn="card.isBtn"
-      />
-    </ul>
 
+  <ul class="finance__list">
+    <FinanceCard
+      v-for="card in cardsTrans"
+      :key="card.id"
+      :title="card.title"
+      :descr="card.descr"
+      :count="card.count"
+      :cash="card.cash"
+      :isBtn="card.isBtn"
+    />
+  </ul>
 </template>
 
 <style scoped>
@@ -61,13 +69,13 @@ import { selectOptions, cardsTrans } from '@/constants/financePage'
   height: 30px;
 }
 
-.finance__list {    
-    display: grid;    
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+.finance__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .finance__list .card:nth-child(3) {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 </style>

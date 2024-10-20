@@ -16,29 +16,25 @@ export const topMenu = [
     id: 0,
     text: 'Главная',
     icon: IconHome,
-    path: { name: 'Hero' },
-    disabled: false
+    path: { name: 'Hero' },    
   },
   {
     id: 1,
     text: 'События',
     icon: IconCalendar,
-    path: { name: 'Events' },
-    disabled: false
+    path: { name: 'Events' },    
   },
   {
     id: 2,
     text: 'Мой профиль',
     icon: IconUser,
-    path: { name: 'Profile' },
-    disabled: false
+    path: { name: 'Profile' },    
   },
   {
     id: 3,
     text: 'Сообщения',
     icon: IconComment,
-    path: '',
-    disabled: false
+    path: '',    
   }
 ]
 
@@ -47,29 +43,25 @@ export const destribMenu = [
     id: 20,
     text: 'Мой каталог',
     icon: IconDisribut,
-    path: {name: 'Catalog'},
-    disabled: false
+    path: { name: 'Catalog' },    
   },
   {
     id: 21,
     text: 'Статистика',
     icon: IconStatic,
-    path: '',    //{ name: 'downloads'},
-    disabled: false
+    path: { name: 'Statistics' },     
   },
   {
     id: 22,
     text: 'Мультиссылка',
     icon: IconLink,
-    path: { name: 'multilink'},
-    disabled: false
+    path: { name: 'Multilink'},    
   },
   {
     id: 23,
     text: 'Поддержка',
     icon: IconSupport,
-    path: '',
-    disabled: true
+    path: '',    
   }
 ]
 
@@ -78,28 +70,24 @@ export const marketplaseMenu = [
     id: 30,
     text: 'Финансы',
     icon: IconFinanse,
-    path: { name: 'finance' },
-    disabled: false
+    path: { name: 'Finance' },    
   },
   {
     id: 31,
     text: 'Партнерка',
     icon: IconPartner,
-    path: '', //{name: 'Catalog'},
-    disabled: false
+    path: '',     
   },
   {
     id: 32,
     text: 'Обучение',
     icon: IconEducation,
-    path: { name: 'education' }, 
-    disabled: false
+    path: { name: 'Education' },     
   },
   {
     id: 33,
     text: 'Информация',
     icon: IconInfo,
-    path: '', //{name: 'Catalog'},
-    disabled: false
+    path: '',    
   },
 ]

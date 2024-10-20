@@ -129,4 +129,31 @@ const toggleMenu = () => {
   opacity: 1;
   visibility: visible;
 }
+
+
+@media (max-width: 1024px) {
+  .header__nav {
+    padding-top: 50px;
+    position: absolute;
+    inset: 0;
+    z-index: 1000;
+    background-color: var(--color-bg);
+    height: 100vh;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .menu__item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .munu__link {
+    display: block;
+    width: 100%;
+  }
+}
 </style>

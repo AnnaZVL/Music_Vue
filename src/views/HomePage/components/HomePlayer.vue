@@ -18,7 +18,7 @@ const playVideo = (index) => {
 }
 
 const changePlay = () => {
-  if (videoPlayer.value && route.name === 'home') {
+  if (videoPlayer.value && route.name === 'Home') {
     videoPlayer.value.play()
 
     // Установите таймер для переключения видео через 3 секунды
@@ -35,7 +35,7 @@ const changePlay = () => {
 }
 
 onMounted(() => {  
-  if (videoPlayer.value && route.name === 'home') {
+  if (videoPlayer.value && route.name === 'Home') {
     playVideo(currentVideoIndex.value)
   }
 })

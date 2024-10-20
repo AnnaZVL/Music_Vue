@@ -26,7 +26,7 @@ onMounted(() => {
 
     // Слушаем изменения в select и выводим выбранное значение
     selectElement.addEventListener('change', (event) => {
-      const selectedValue = event.target.value
+      const selectedValue = props.optionsList.find(item => item.value === event.target.value)      
       emits('update:modelValue', selectedValue)
     })
   }

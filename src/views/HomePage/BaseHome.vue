@@ -2,12 +2,17 @@
 import ContactsBase from './components/ContactsBase.vue'
 import HomePlayer from './components/HomePlayer.vue'
 import BubbleBase from '@/views/HomePage/components/BubbleBase.vue'
+import SevicesCard from './components/SevicesCard.vue'
+import BannerBase from './components/BannerBase.vue'
+import QuestionsBase from './components/QuestionsBase.vue'
+
+import { servicesList, questionsList } from '@/constants/homePage'
 </script>
 
 <template>
-  <BubbleBase/>
   <main class="main">
-    <section class="hero">
+    <section class="hero" id="hero">
+      <BubbleBase />
       <div class="hero__container container">
         <div class="hero__content">
           <h1 class="hero__title">Эксперты в&nbsp;продвижении музыки</h1>
@@ -24,6 +29,15 @@ import BubbleBase from '@/views/HomePage/components/BubbleBase.vue'
         <HomePlayer />
       </div>
     </section>
+    <section class="services">
+      <div class="container">
+        <div class="services__container">
+          <SevicesCard v-for="item in servicesList" :key="item.id" :item="item" />
+        </div>
+      </div>
+    </section>
+    <BannerBase />
+    <QuestionsBase :questionsList="questionsList" />
   </main>
 </template>
 
@@ -36,14 +50,14 @@ import BubbleBase from '@/views/HomePage/components/BubbleBase.vue'
 }
 
 .hero {
+  position: relative;
   width: 100%;
   height: 100%;
 }
 
 .hero__container {
   position: relative;
-  display: flex;
-  width: 100%;
+  display: flex;  
   justify-content: space-between;
   height: 100%;
 }
@@ -133,5 +147,76 @@ import BubbleBase from '@/views/HomePage/components/BubbleBase.vue'
   );
   background: -o-linear-gradient(left, rgba(242, 144, 105, 1) 9%, rgba(244, 31, 4, 1) 100%);
   background: linear-gradient(90deg, rgba(242, 144, 105, 1) 9%, rgba(244, 31, 4, 1) 100%);
+}
+
+.services {
+  margin: 100px 0 100px 0;
+}
+
+.services__container {
+  padding: 0 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .hero__content {
+    position: static;
+    align-items: center;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .hero__title,
+  .hero__descr,
+  .hero__descr--strong {
+    text-align: center;
+  }
+
+  .hero__player {
+    margin: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .contacts {
+    align-self: flex-start;
+  }
+
+  .services {
+    margin-top: 200px;
+  }
+
+  .services__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 562px) {
+  .services {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 562px) {
+  .hero__title {
+        font-size: 3.5rem;          
+        word-break: break-word;
+    }
+
+    .hero__descr {
+        font-size: 1rem;
+    }
+
+    .services__container {
+        grid-template-columns: 1fr;
+    }   
 }
 </style>

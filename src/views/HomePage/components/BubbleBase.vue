@@ -7,19 +7,20 @@ const route = useRoute()
 const dots = []
 
 const createdot = (initial = false) => {
-  if (route.name === 'home') {
+  
+  if (route.name === 'Home') {
     const dot = document.createElement('div')
     dot.classList.add('dot')
 
     dot.style.left = `${Math.random() * 100}%`
 
-    if (initial) {
+    if (initial) {    
       dot.style.bottom = `${Math.random() * 100}vh`
 
       dot.style.animationDelay = `${Math.random() * 10}s`
       dot.style.animationDuration = `${15 + Math.random() * 5}s`
-    } else {
-      dot.style.bottom = `0vh`
+    } else {      
+      dot.style.bottom = `0vh`      
       dot.style.animationDelay = `${Math.random() * 10}s`
       dot.style.animationDuration = `${45 + Math.random() * 5}s`
     }
@@ -35,8 +36,8 @@ const createdot = (initial = false) => {
 }
 
 onMounted(() => {
-  if (route.name === 'home' && bublContainer.value) {
-    for (let i = 0; i < 450; i++) {
+  if (route.name === 'Home' && bublContainer.value) {
+    for (let i = 0; i < 250; i++) {
       createdot(true)
     }
 
@@ -79,6 +80,12 @@ onMounted(() => {
   to {
     transform: translateY(-100vh);
     opacity: 1;
+  }
+}
+
+@media (max-width: 562px) {
+  .bubl__container {
+    display: none;
   }
 }
 </style>

@@ -9,6 +9,7 @@ import ProfilePersonal from '@/views/PersonalPages/Profile/ProfilePersonal.vue'
 import EducationPersonal from '@/views/PersonalPages/Education/EducationPersonal.vue'
 import FinancePersonal from '@/views/PersonalPages/Finance/FinancePersonal.vue'
 import MultilinkPersonal from '@/views/PersonalPages/Multilink/MultilinkPersonal.vue'
+import StatisticsPersonal from '@/views/PersonalPages/Statistics/StatisticsPersonal.vue'
 import DownloadsBase from '@/views/PersonalPages/Downloads/DownloadsBase.vue'
 
 import HeaderHome from '@/components/Layout/Header/HeaderHome.vue'
@@ -20,12 +21,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       components: { default: BaseHome, header: HeaderHome },
     },
     {
       path: '/personal',
-      name: 'personal',
+      name: 'Personal',
       components: { default: BasePersonal, header: HeaderPersonal },
       children: [
         {
@@ -50,22 +51,27 @@ const router = createRouter({
         }, 
         {
           path: 'education',
-          name: 'education',
+          name: 'Education',
           component: EducationPersonal,                  
         },
         {
           path: 'finance',
-          name: 'finance',
+          name: 'Finance',
           component: FinancePersonal,                  
         },
         {
           path: 'multilink',
-          name: 'multilink',
+          name: 'Multilink',
           component: MultilinkPersonal,                  
         },
         {
+          path: 'statistics',
+          name: 'Statistics',
+          component: StatisticsPersonal,                  
+        },
+        {
           path: 'downloads',
-          name: 'downloads',
+          name: 'Downloads',
           component: DownloadsBase,                  
         }
       ]

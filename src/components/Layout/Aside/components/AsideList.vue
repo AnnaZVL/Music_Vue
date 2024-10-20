@@ -10,7 +10,7 @@ const route = useRoute()
   <ul class="aside-menu" >
     <li
       class="aside-menu__item"
-      :class="{ 'active-route': route.name === item.path.name, disabled: item.disabled }"
+      :class="{ 'active-route': route.name === item.path.name, disabled: !item.path }"
       v-for="item in list"
       :key="item.id"
     >

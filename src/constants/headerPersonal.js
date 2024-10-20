@@ -7,12 +7,12 @@ export const menu = [
     text: 'Релиз на дистрибуцию',
     icon: IconDisribut,
     disabled: false,
-    path: {name: 'downloads'}
+    path: {name: 'Downloads'}
   },
   {
     text: 'Минус на продажу',
     icon: IconMinus,
-    disabled: false,
+    disabled: true,
     path: ''
   },
   {
