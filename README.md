@@ -1,35 +1,12 @@
-# Music_Vue
+# Приложение для продвижения авторской музыкы
 
-This template should help get you started developing with Vue 3 in Vite.
+Frontend часть приложения состоит из 2 частей: главной страницы и страницы личного кабинета. На странице личного кабинета можно загрузить свою песню или альбом, отслеживать свою статистику и финансовые операции, следить за новинками площадки и участвовать в акциях. 
 
-## Recommended IDE Setup
+## Использованные технологии
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Vue3 (pinia? router)/ choices.js, swiper chart.js. Адаптивна, кроссбраузерная верстка.
 
-## Customize configuration
+## Дополнительная информация.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Данные в приложении пока статичны, бекенд части нет, но предусмотрена возможность полноценной работы по API. 
+Есть возможность входа или регистрации пользователя.
